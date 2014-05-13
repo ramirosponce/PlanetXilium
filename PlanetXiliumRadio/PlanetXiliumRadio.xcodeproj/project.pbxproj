@@ -1,0 +1,767 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C6A250ED19135C6100A2DA8F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6A250EC19135C6100A2DA8F /* Foundation.framework */; };
+		C6A250EF19135C6100A2DA8F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6A250EE19135C6100A2DA8F /* CoreGraphics.framework */; };
+		C6A250F119135C6100A2DA8F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6A250F019135C6100A2DA8F /* UIKit.framework */; };
+		C6A250F719135C6100A2DA8F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C6A250F519135C6100A2DA8F /* InfoPlist.strings */; };
+		C6A250F919135C6100A2DA8F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A250F819135C6100A2DA8F /* main.m */; };
+		C6A250FD19135C6100A2DA8F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A250FC19135C6100A2DA8F /* AppDelegate.m */; };
+		C6A2510019135C6100A2DA8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6A250FE19135C6100A2DA8F /* Main.storyboard */; };
+		C6A2510319135C6100A2DA8F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A2510219135C6100A2DA8F /* ViewController.m */; };
+		C6A2510519135C6100A2DA8F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6A2510419135C6100A2DA8F /* Images.xcassets */; };
+		C6A2510C19135C6100A2DA8F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6A2510B19135C6100A2DA8F /* XCTest.framework */; };
+		C6A2510D19135C6100A2DA8F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6A250EC19135C6100A2DA8F /* Foundation.framework */; };
+		C6A2510E19135C6100A2DA8F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6A250F019135C6100A2DA8F /* UIKit.framework */; };
+		C6A2511619135C6100A2DA8F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C6A2511419135C6100A2DA8F /* InfoPlist.strings */; };
+		C6A2511819135C6100A2DA8F /* PlanetXiliumRadioTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A2511719135C6100A2DA8F /* PlanetXiliumRadioTests.m */; };
+		C6A2512219135C8D00A2DA8F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6A2512119135C8D00A2DA8F /* CFNetwork.framework */; };
+		C6A2512419135CA100A2DA8F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6A2512319135CA100A2DA8F /* AudioToolbox.framework */; };
+		C6A2512619135CA900A2DA8F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6A2512519135CA900A2DA8F /* AVFoundation.framework */; };
+		C6A2512819135CB400A2DA8F /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C6A2512719135CB400A2DA8F /* libxml2.dylib */; };
+		C6A2512A19135CC300A2DA8F /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6A2512919135CC300A2DA8F /* MediaPlayer.framework */; };
+		C6A2513A19135D3800A2DA8F /* audio_queue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C6A2512E19135D3800A2DA8F /* audio_queue.cpp */; };
+		C6A2513B19135D3800A2DA8F /* audio_stream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C6A2513019135D3800A2DA8F /* audio_stream.cpp */; };
+		C6A2513C19135D3800A2DA8F /* file_output.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C6A2513219135D3800A2DA8F /* file_output.cpp */; };
+		C6A2513D19135D3800A2DA8F /* http_stream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C6A2513419135D3800A2DA8F /* http_stream.cpp */; };
+		C6A2513E19135D3800A2DA8F /* id3_parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C6A2513619135D3800A2DA8F /* id3_parser.cpp */; };
+		C6A2513F19135D3800A2DA8F /* stream_configuration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C6A2513819135D3800A2DA8F /* stream_configuration.cpp */; };
+		C6A2515119135D4100A2DA8F /* FSAudioController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A2514219135D4100A2DA8F /* FSAudioController.m */; };
+		C6A2515219135D4100A2DA8F /* FSAudioStream.mm in Sources */ = {isa = PBXBuildFile; fileRef = C6A2514419135D4100A2DA8F /* FSAudioStream.mm */; };
+		C6A2515319135D4100A2DA8F /* FSCheckContentTypeRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A2514619135D4100A2DA8F /* FSCheckContentTypeRequest.m */; };
+		C6A2515419135D4100A2DA8F /* FSParsePlaylistRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A2514819135D4100A2DA8F /* FSParsePlaylistRequest.m */; };
+		C6A2515519135D4100A2DA8F /* FSParseRssPodcastFeedRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A2514A19135D4100A2DA8F /* FSParseRssPodcastFeedRequest.m */; };
+		C6A2515619135D4100A2DA8F /* FSPlaylistItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A2514C19135D4100A2DA8F /* FSPlaylistItem.m */; };
+		C6A2515719135D4100A2DA8F /* FSXMLHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A2514E19135D4100A2DA8F /* FSXMLHttpRequest.m */; };
+		C6A2515819135D4100A2DA8F /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A2515019135D4100A2DA8F /* Reachability.m */; };
+		C6A25163191373BC00A2DA8F /* Dosis-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C6A2515C191373BC00A2DA8F /* Dosis-Bold.otf */; };
+		C6A25164191373BC00A2DA8F /* Dosis-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C6A2515D191373BC00A2DA8F /* Dosis-ExtraBold.otf */; };
+		C6A25165191373BC00A2DA8F /* Dosis-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = C6A2515E191373BC00A2DA8F /* Dosis-ExtraLight.otf */; };
+		C6A25166191373BC00A2DA8F /* Dosis-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = C6A2515F191373BC00A2DA8F /* Dosis-Light.otf */; };
+		C6A25167191373BC00A2DA8F /* Dosis-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = C6A25160191373BC00A2DA8F /* Dosis-Medium.otf */; };
+		C6A25168191373BC00A2DA8F /* Dosis-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C6A25161191373BC00A2DA8F /* Dosis-Regular.otf */; };
+		C6A25169191373BC00A2DA8F /* Dosis-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C6A25162191373BC00A2DA8F /* Dosis-SemiBold.otf */; };
+		C6A25178191374B700A2DA8F /* circle_image.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A2516A191374B700A2DA8F /* circle_image.png */; };
+		C6A25179191374B700A2DA8F /* circle_image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A2516B191374B700A2DA8F /* circle_image@2x.png */; };
+		C6A2517A191374B700A2DA8F /* main_background.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A2516C191374B700A2DA8F /* main_background.png */; };
+		C6A2517B191374B700A2DA8F /* main_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A2516D191374B700A2DA8F /* main_background@2x.png */; };
+		C6A2517C191374B700A2DA8F /* menu_button.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A2516E191374B700A2DA8F /* menu_button.png */; };
+		C6A2517D191374B700A2DA8F /* menu_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A2516F191374B700A2DA8F /* menu_button@2x.png */; };
+		C6A2517E191374B700A2DA8F /* next_button.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A25170191374B700A2DA8F /* next_button.png */; };
+		C6A2517F191374B700A2DA8F /* next_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A25171191374B700A2DA8F /* next_button@2x.png */; };
+		C6A25180191374B700A2DA8F /* previous_button.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A25172191374B700A2DA8F /* previous_button.png */; };
+		C6A25181191374B700A2DA8F /* previous_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A25173191374B700A2DA8F /* previous_button@2x.png */; };
+		C6A25182191374B700A2DA8F /* share_button.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A25174191374B700A2DA8F /* share_button.png */; };
+		C6A25183191374B700A2DA8F /* share_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A25175191374B700A2DA8F /* share_button@2x.png */; };
+		C6A25184191374B700A2DA8F /* sound_image_background.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A25176191374B700A2DA8F /* sound_image_background.png */; };
+		C6A25185191374B700A2DA8F /* sound_image_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A25177191374B700A2DA8F /* sound_image_background@2x.png */; };
+		C6A2518C1913750100A2DA8F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A2518B1913750100A2DA8F /* MainViewController.m */; };
+		C6A2519119137D2100A2DA8F /* pause_button.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A2518D19137D2100A2DA8F /* pause_button.png */; };
+		C6A2519219137D2100A2DA8F /* pause_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A2518E19137D2100A2DA8F /* pause_button@2x.png */; };
+		C6A2519319137D2100A2DA8F /* play_button.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A2518F19137D2100A2DA8F /* play_button.png */; };
+		C6A2519419137D2100A2DA8F /* play_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A2519019137D2100A2DA8F /* play_button@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C6A2510F19135C6100A2DA8F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C6A250E119135C6100A2DA8F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C6A250E819135C6100A2DA8F;
+			remoteInfo = PlanetXiliumRadio;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C6A250E919135C6100A2DA8F /* PlanetXiliumRadio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlanetXiliumRadio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6A250EC19135C6100A2DA8F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C6A250EE19135C6100A2DA8F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		C6A250F019135C6100A2DA8F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		C6A250F419135C6100A2DA8F /* PlanetXiliumRadio-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PlanetXiliumRadio-Info.plist"; sourceTree = "<group>"; };
+		C6A250F619135C6100A2DA8F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C6A250F819135C6100A2DA8F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C6A250FA19135C6100A2DA8F /* PlanetXiliumRadio-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PlanetXiliumRadio-Prefix.pch"; sourceTree = "<group>"; };
+		C6A250FB19135C6100A2DA8F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		C6A250FC19135C6100A2DA8F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C6A250FF19135C6100A2DA8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C6A2510119135C6100A2DA8F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		C6A2510219135C6100A2DA8F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		C6A2510419135C6100A2DA8F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C6A2510A19135C6100A2DA8F /* PlanetXiliumRadioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlanetXiliumRadioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6A2510B19135C6100A2DA8F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		C6A2511319135C6100A2DA8F /* PlanetXiliumRadioTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PlanetXiliumRadioTests-Info.plist"; sourceTree = "<group>"; };
+		C6A2511519135C6100A2DA8F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C6A2511719135C6100A2DA8F /* PlanetXiliumRadioTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlanetXiliumRadioTests.m; sourceTree = "<group>"; };
+		C6A2512119135C8D00A2DA8F /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		C6A2512319135CA100A2DA8F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		C6A2512519135CA900A2DA8F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		C6A2512719135CB400A2DA8F /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		C6A2512919135CC300A2DA8F /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		C6A2512E19135D3800A2DA8F /* audio_queue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = audio_queue.cpp; sourceTree = "<group>"; };
+		C6A2512F19135D3800A2DA8F /* audio_queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = audio_queue.h; sourceTree = "<group>"; };
+		C6A2513019135D3800A2DA8F /* audio_stream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = audio_stream.cpp; sourceTree = "<group>"; };
+		C6A2513119135D3800A2DA8F /* audio_stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = audio_stream.h; sourceTree = "<group>"; };
+		C6A2513219135D3800A2DA8F /* file_output.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = file_output.cpp; sourceTree = "<group>"; };
+		C6A2513319135D3800A2DA8F /* file_output.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = file_output.h; sourceTree = "<group>"; };
+		C6A2513419135D3800A2DA8F /* http_stream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = http_stream.cpp; sourceTree = "<group>"; };
+		C6A2513519135D3800A2DA8F /* http_stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = http_stream.h; sourceTree = "<group>"; };
+		C6A2513619135D3800A2DA8F /* id3_parser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = id3_parser.cpp; sourceTree = "<group>"; };
+		C6A2513719135D3800A2DA8F /* id3_parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = id3_parser.h; sourceTree = "<group>"; };
+		C6A2513819135D3800A2DA8F /* stream_configuration.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stream_configuration.cpp; sourceTree = "<group>"; };
+		C6A2513919135D3800A2DA8F /* stream_configuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stream_configuration.h; sourceTree = "<group>"; };
+		C6A2514119135D4100A2DA8F /* FSAudioController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSAudioController.h; sourceTree = "<group>"; };
+		C6A2514219135D4100A2DA8F /* FSAudioController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSAudioController.m; sourceTree = "<group>"; };
+		C6A2514319135D4100A2DA8F /* FSAudioStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSAudioStream.h; sourceTree = "<group>"; };
+		C6A2514419135D4100A2DA8F /* FSAudioStream.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FSAudioStream.mm; sourceTree = "<group>"; };
+		C6A2514519135D4100A2DA8F /* FSCheckContentTypeRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCheckContentTypeRequest.h; sourceTree = "<group>"; };
+		C6A2514619135D4100A2DA8F /* FSCheckContentTypeRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCheckContentTypeRequest.m; sourceTree = "<group>"; };
+		C6A2514719135D4100A2DA8F /* FSParsePlaylistRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSParsePlaylistRequest.h; sourceTree = "<group>"; };
+		C6A2514819135D4100A2DA8F /* FSParsePlaylistRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSParsePlaylistRequest.m; sourceTree = "<group>"; };
+		C6A2514919135D4100A2DA8F /* FSParseRssPodcastFeedRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSParseRssPodcastFeedRequest.h; sourceTree = "<group>"; };
+		C6A2514A19135D4100A2DA8F /* FSParseRssPodcastFeedRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSParseRssPodcastFeedRequest.m; sourceTree = "<group>"; };
+		C6A2514B19135D4100A2DA8F /* FSPlaylistItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSPlaylistItem.h; sourceTree = "<group>"; };
+		C6A2514C19135D4100A2DA8F /* FSPlaylistItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSPlaylistItem.m; sourceTree = "<group>"; };
+		C6A2514D19135D4100A2DA8F /* FSXMLHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSXMLHttpRequest.h; sourceTree = "<group>"; };
+		C6A2514E19135D4100A2DA8F /* FSXMLHttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSXMLHttpRequest.m; sourceTree = "<group>"; };
+		C6A2514F19135D4100A2DA8F /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		C6A2515019135D4100A2DA8F /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		C6A2515C191373BC00A2DA8F /* Dosis-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Bold.otf"; sourceTree = "<group>"; };
+		C6A2515D191373BC00A2DA8F /* Dosis-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-ExtraBold.otf"; sourceTree = "<group>"; };
+		C6A2515E191373BC00A2DA8F /* Dosis-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-ExtraLight.otf"; sourceTree = "<group>"; };
+		C6A2515F191373BC00A2DA8F /* Dosis-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Light.otf"; sourceTree = "<group>"; };
+		C6A25160191373BC00A2DA8F /* Dosis-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Medium.otf"; sourceTree = "<group>"; };
+		C6A25161191373BC00A2DA8F /* Dosis-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Regular.otf"; sourceTree = "<group>"; };
+		C6A25162191373BC00A2DA8F /* Dosis-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-SemiBold.otf"; sourceTree = "<group>"; };
+		C6A2516A191374B700A2DA8F /* circle_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle_image.png; sourceTree = "<group>"; };
+		C6A2516B191374B700A2DA8F /* circle_image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "circle_image@2x.png"; sourceTree = "<group>"; };
+		C6A2516C191374B700A2DA8F /* main_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_background.png; sourceTree = "<group>"; };
+		C6A2516D191374B700A2DA8F /* main_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "main_background@2x.png"; sourceTree = "<group>"; };
+		C6A2516E191374B700A2DA8F /* menu_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_button.png; sourceTree = "<group>"; };
+		C6A2516F191374B700A2DA8F /* menu_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_button@2x.png"; sourceTree = "<group>"; };
+		C6A25170191374B700A2DA8F /* next_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = next_button.png; sourceTree = "<group>"; };
+		C6A25171191374B700A2DA8F /* next_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "next_button@2x.png"; sourceTree = "<group>"; };
+		C6A25172191374B700A2DA8F /* previous_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = previous_button.png; sourceTree = "<group>"; };
+		C6A25173191374B700A2DA8F /* previous_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "previous_button@2x.png"; sourceTree = "<group>"; };
+		C6A25174191374B700A2DA8F /* share_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share_button.png; sourceTree = "<group>"; };
+		C6A25175191374B700A2DA8F /* share_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_button@2x.png"; sourceTree = "<group>"; };
+		C6A25176191374B700A2DA8F /* sound_image_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sound_image_background.png; sourceTree = "<group>"; };
+		C6A25177191374B700A2DA8F /* sound_image_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sound_image_background@2x.png"; sourceTree = "<group>"; };
+		C6A2518A1913750100A2DA8F /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		C6A2518B1913750100A2DA8F /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		C6A2518D19137D2100A2DA8F /* pause_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause_button.png; sourceTree = "<group>"; };
+		C6A2518E19137D2100A2DA8F /* pause_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pause_button@2x.png"; sourceTree = "<group>"; };
+		C6A2518F19137D2100A2DA8F /* play_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_button.png; sourceTree = "<group>"; };
+		C6A2519019137D2100A2DA8F /* play_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play_button@2x.png"; sourceTree = "<group>"; };
+		C6A2519619137E3C00A2DA8F /* Main.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Main.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C6A250E619135C6100A2DA8F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6A2512A19135CC300A2DA8F /* MediaPlayer.framework in Frameworks */,
+				C6A2512819135CB400A2DA8F /* libxml2.dylib in Frameworks */,
+				C6A2512619135CA900A2DA8F /* AVFoundation.framework in Frameworks */,
+				C6A2512419135CA100A2DA8F /* AudioToolbox.framework in Frameworks */,
+				C6A2512219135C8D00A2DA8F /* CFNetwork.framework in Frameworks */,
+				C6A250EF19135C6100A2DA8F /* CoreGraphics.framework in Frameworks */,
+				C6A250F119135C6100A2DA8F /* UIKit.framework in Frameworks */,
+				C6A250ED19135C6100A2DA8F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6A2510719135C6100A2DA8F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6A2510C19135C6100A2DA8F /* XCTest.framework in Frameworks */,
+				C6A2510E19135C6100A2DA8F /* UIKit.framework in Frameworks */,
+				C6A2510D19135C6100A2DA8F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C6A250E019135C6100A2DA8F = {
+			isa = PBXGroup;
+			children = (
+				C6A250F219135C6100A2DA8F /* PlanetXiliumRadio */,
+				C6A2511119135C6100A2DA8F /* PlanetXiliumRadioTests */,
+				C6A250EB19135C6100A2DA8F /* Frameworks */,
+				C6A250EA19135C6100A2DA8F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C6A250EA19135C6100A2DA8F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C6A250E919135C6100A2DA8F /* PlanetXiliumRadio.app */,
+				C6A2510A19135C6100A2DA8F /* PlanetXiliumRadioTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C6A250EB19135C6100A2DA8F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C6A2512919135CC300A2DA8F /* MediaPlayer.framework */,
+				C6A2512519135CA900A2DA8F /* AVFoundation.framework */,
+				C6A2512319135CA100A2DA8F /* AudioToolbox.framework */,
+				C6A2512119135C8D00A2DA8F /* CFNetwork.framework */,
+				C6A2512719135CB400A2DA8F /* libxml2.dylib */,
+				C6A250EC19135C6100A2DA8F /* Foundation.framework */,
+				C6A250EE19135C6100A2DA8F /* CoreGraphics.framework */,
+				C6A250F019135C6100A2DA8F /* UIKit.framework */,
+				C6A2510B19135C6100A2DA8F /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C6A250F219135C6100A2DA8F /* PlanetXiliumRadio */ = {
+			isa = PBXGroup;
+			children = (
+				C6A2519519137DB900A2DA8F /* Classes */,
+				C6A25189191374E400A2DA8F /* Controllers */,
+				C6A251591913737C00A2DA8F /* Resources */,
+				C6A2512B19135CE300A2DA8F /* External */,
+				C6A250FB19135C6100A2DA8F /* AppDelegate.h */,
+				C6A250FC19135C6100A2DA8F /* AppDelegate.m */,
+				C6A250FE19135C6100A2DA8F /* Main.storyboard */,
+				C6A2510119135C6100A2DA8F /* ViewController.h */,
+				C6A2510219135C6100A2DA8F /* ViewController.m */,
+				C6A2510419135C6100A2DA8F /* Images.xcassets */,
+				C6A250F319135C6100A2DA8F /* Supporting Files */,
+			);
+			path = PlanetXiliumRadio;
+			sourceTree = "<group>";
+		};
+		C6A250F319135C6100A2DA8F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C6A250F419135C6100A2DA8F /* PlanetXiliumRadio-Info.plist */,
+				C6A250F519135C6100A2DA8F /* InfoPlist.strings */,
+				C6A250F819135C6100A2DA8F /* main.m */,
+				C6A250FA19135C6100A2DA8F /* PlanetXiliumRadio-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C6A2511119135C6100A2DA8F /* PlanetXiliumRadioTests */ = {
+			isa = PBXGroup;
+			children = (
+				C6A2511719135C6100A2DA8F /* PlanetXiliumRadioTests.m */,
+				C6A2511219135C6100A2DA8F /* Supporting Files */,
+			);
+			path = PlanetXiliumRadioTests;
+			sourceTree = "<group>";
+		};
+		C6A2511219135C6100A2DA8F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C6A2511319135C6100A2DA8F /* PlanetXiliumRadioTests-Info.plist */,
+				C6A2511419135C6100A2DA8F /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C6A2512B19135CE300A2DA8F /* External */ = {
+			isa = PBXGroup;
+			children = (
+				C6A2512C19135D1B00A2DA8F /* Streamer */,
+			);
+			path = External;
+			sourceTree = "<group>";
+		};
+		C6A2512C19135D1B00A2DA8F /* Streamer */ = {
+			isa = PBXGroup;
+			children = (
+				C6A2514019135D4100A2DA8F /* Common */,
+				C6A2512D19135D3800A2DA8F /* astreamer */,
+			);
+			path = Streamer;
+			sourceTree = "<group>";
+		};
+		C6A2512D19135D3800A2DA8F /* astreamer */ = {
+			isa = PBXGroup;
+			children = (
+				C6A2512E19135D3800A2DA8F /* audio_queue.cpp */,
+				C6A2512F19135D3800A2DA8F /* audio_queue.h */,
+				C6A2513019135D3800A2DA8F /* audio_stream.cpp */,
+				C6A2513119135D3800A2DA8F /* audio_stream.h */,
+				C6A2513219135D3800A2DA8F /* file_output.cpp */,
+				C6A2513319135D3800A2DA8F /* file_output.h */,
+				C6A2513419135D3800A2DA8F /* http_stream.cpp */,
+				C6A2513519135D3800A2DA8F /* http_stream.h */,
+				C6A2513619135D3800A2DA8F /* id3_parser.cpp */,
+				C6A2513719135D3800A2DA8F /* id3_parser.h */,
+				C6A2513819135D3800A2DA8F /* stream_configuration.cpp */,
+				C6A2513919135D3800A2DA8F /* stream_configuration.h */,
+			);
+			path = astreamer;
+			sourceTree = "<group>";
+		};
+		C6A2514019135D4100A2DA8F /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				C6A2514119135D4100A2DA8F /* FSAudioController.h */,
+				C6A2514219135D4100A2DA8F /* FSAudioController.m */,
+				C6A2514319135D4100A2DA8F /* FSAudioStream.h */,
+				C6A2514419135D4100A2DA8F /* FSAudioStream.mm */,
+				C6A2514519135D4100A2DA8F /* FSCheckContentTypeRequest.h */,
+				C6A2514619135D4100A2DA8F /* FSCheckContentTypeRequest.m */,
+				C6A2514719135D4100A2DA8F /* FSParsePlaylistRequest.h */,
+				C6A2514819135D4100A2DA8F /* FSParsePlaylistRequest.m */,
+				C6A2514919135D4100A2DA8F /* FSParseRssPodcastFeedRequest.h */,
+				C6A2514A19135D4100A2DA8F /* FSParseRssPodcastFeedRequest.m */,
+				C6A2514B19135D4100A2DA8F /* FSPlaylistItem.h */,
+				C6A2514C19135D4100A2DA8F /* FSPlaylistItem.m */,
+				C6A2514D19135D4100A2DA8F /* FSXMLHttpRequest.h */,
+				C6A2514E19135D4100A2DA8F /* FSXMLHttpRequest.m */,
+				C6A2514F19135D4100A2DA8F /* Reachability.h */,
+				C6A2515019135D4100A2DA8F /* Reachability.m */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		C6A251591913737C00A2DA8F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C6A2515B191373A300A2DA8F /* Images */,
+				C6A2515A1913739200A2DA8F /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C6A2515A1913739200A2DA8F /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				C6A2515C191373BC00A2DA8F /* Dosis-Bold.otf */,
+				C6A2515D191373BC00A2DA8F /* Dosis-ExtraBold.otf */,
+				C6A2515E191373BC00A2DA8F /* Dosis-ExtraLight.otf */,
+				C6A2515F191373BC00A2DA8F /* Dosis-Light.otf */,
+				C6A25160191373BC00A2DA8F /* Dosis-Medium.otf */,
+				C6A25161191373BC00A2DA8F /* Dosis-Regular.otf */,
+				C6A25162191373BC00A2DA8F /* Dosis-SemiBold.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		C6A2515B191373A300A2DA8F /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				C6A2518D19137D2100A2DA8F /* pause_button.png */,
+				C6A2518E19137D2100A2DA8F /* pause_button@2x.png */,
+				C6A2518F19137D2100A2DA8F /* play_button.png */,
+				C6A2519019137D2100A2DA8F /* play_button@2x.png */,
+				C6A2516A191374B700A2DA8F /* circle_image.png */,
+				C6A2516B191374B700A2DA8F /* circle_image@2x.png */,
+				C6A2516C191374B700A2DA8F /* main_background.png */,
+				C6A2516D191374B700A2DA8F /* main_background@2x.png */,
+				C6A2516E191374B700A2DA8F /* menu_button.png */,
+				C6A2516F191374B700A2DA8F /* menu_button@2x.png */,
+				C6A25170191374B700A2DA8F /* next_button.png */,
+				C6A25171191374B700A2DA8F /* next_button@2x.png */,
+				C6A25172191374B700A2DA8F /* previous_button.png */,
+				C6A25173191374B700A2DA8F /* previous_button@2x.png */,
+				C6A25174191374B700A2DA8F /* share_button.png */,
+				C6A25175191374B700A2DA8F /* share_button@2x.png */,
+				C6A25176191374B700A2DA8F /* sound_image_background.png */,
+				C6A25177191374B700A2DA8F /* sound_image_background@2x.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		C6A25189191374E400A2DA8F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C6A2518A1913750100A2DA8F /* MainViewController.h */,
+				C6A2518B1913750100A2DA8F /* MainViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		C6A2519519137DB900A2DA8F /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C6A2519619137E3C00A2DA8F /* Main.h */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C6A250E819135C6100A2DA8F /* PlanetXiliumRadio */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C6A2511B19135C6100A2DA8F /* Build configuration list for PBXNativeTarget "PlanetXiliumRadio" */;
+			buildPhases = (
+				C6A250E519135C6100A2DA8F /* Sources */,
+				C6A250E619135C6100A2DA8F /* Frameworks */,
+				C6A250E719135C6100A2DA8F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PlanetXiliumRadio;
+			productName = PlanetXiliumRadio;
+			productReference = C6A250E919135C6100A2DA8F /* PlanetXiliumRadio.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C6A2510919135C6100A2DA8F /* PlanetXiliumRadioTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C6A2511E19135C6100A2DA8F /* Build configuration list for PBXNativeTarget "PlanetXiliumRadioTests" */;
+			buildPhases = (
+				C6A2510619135C6100A2DA8F /* Sources */,
+				C6A2510719135C6100A2DA8F /* Frameworks */,
+				C6A2510819135C6100A2DA8F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C6A2511019135C6100A2DA8F /* PBXTargetDependency */,
+			);
+			name = PlanetXiliumRadioTests;
+			productName = PlanetXiliumRadioTests;
+			productReference = C6A2510A19135C6100A2DA8F /* PlanetXiliumRadioTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C6A250E119135C6100A2DA8F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Ramiro Ponce";
+				TargetAttributes = {
+					C6A2510919135C6100A2DA8F = {
+						TestTargetID = C6A250E819135C6100A2DA8F;
+					};
+				};
+			};
+			buildConfigurationList = C6A250E419135C6100A2DA8F /* Build configuration list for PBXProject "PlanetXiliumRadio" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C6A250E019135C6100A2DA8F;
+			productRefGroup = C6A250EA19135C6100A2DA8F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C6A250E819135C6100A2DA8F /* PlanetXiliumRadio */,
+				C6A2510919135C6100A2DA8F /* PlanetXiliumRadioTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C6A250E719135C6100A2DA8F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6A25178191374B700A2DA8F /* circle_image.png in Resources */,
+				C6A2517B191374B700A2DA8F /* main_background@2x.png in Resources */,
+				C6A2517C191374B700A2DA8F /* menu_button.png in Resources */,
+				C6A25180191374B700A2DA8F /* previous_button.png in Resources */,
+				C6A25185191374B700A2DA8F /* sound_image_background@2x.png in Resources */,
+				C6A2510519135C6100A2DA8F /* Images.xcassets in Resources */,
+				C6A25168191373BC00A2DA8F /* Dosis-Regular.otf in Resources */,
+				C6A25163191373BC00A2DA8F /* Dosis-Bold.otf in Resources */,
+				C6A25169191373BC00A2DA8F /* Dosis-SemiBold.otf in Resources */,
+				C6A2517F191374B700A2DA8F /* next_button@2x.png in Resources */,
+				C6A250F719135C6100A2DA8F /* InfoPlist.strings in Resources */,
+				C6A2519219137D2100A2DA8F /* pause_button@2x.png in Resources */,
+				C6A25164191373BC00A2DA8F /* Dosis-ExtraBold.otf in Resources */,
+				C6A2519119137D2100A2DA8F /* pause_button.png in Resources */,
+				C6A2517A191374B700A2DA8F /* main_background.png in Resources */,
+				C6A25184191374B700A2DA8F /* sound_image_background.png in Resources */,
+				C6A25165191373BC00A2DA8F /* Dosis-ExtraLight.otf in Resources */,
+				C6A25182191374B700A2DA8F /* share_button.png in Resources */,
+				C6A25179191374B700A2DA8F /* circle_image@2x.png in Resources */,
+				C6A25166191373BC00A2DA8F /* Dosis-Light.otf in Resources */,
+				C6A25183191374B700A2DA8F /* share_button@2x.png in Resources */,
+				C6A2517E191374B700A2DA8F /* next_button.png in Resources */,
+				C6A2519319137D2100A2DA8F /* play_button.png in Resources */,
+				C6A2510019135C6100A2DA8F /* Main.storyboard in Resources */,
+				C6A2519419137D2100A2DA8F /* play_button@2x.png in Resources */,
+				C6A25167191373BC00A2DA8F /* Dosis-Medium.otf in Resources */,
+				C6A2517D191374B700A2DA8F /* menu_button@2x.png in Resources */,
+				C6A25181191374B700A2DA8F /* previous_button@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6A2510819135C6100A2DA8F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6A2511619135C6100A2DA8F /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C6A250E519135C6100A2DA8F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6A2515719135D4100A2DA8F /* FSXMLHttpRequest.m in Sources */,
+				C6A2513C19135D3800A2DA8F /* file_output.cpp in Sources */,
+				C6A2510319135C6100A2DA8F /* ViewController.m in Sources */,
+				C6A2513D19135D3800A2DA8F /* http_stream.cpp in Sources */,
+				C6A2515319135D4100A2DA8F /* FSCheckContentTypeRequest.m in Sources */,
+				C6A2513E19135D3800A2DA8F /* id3_parser.cpp in Sources */,
+				C6A250FD19135C6100A2DA8F /* AppDelegate.m in Sources */,
+				C6A2515119135D4100A2DA8F /* FSAudioController.m in Sources */,
+				C6A2513F19135D3800A2DA8F /* stream_configuration.cpp in Sources */,
+				C6A2513B19135D3800A2DA8F /* audio_stream.cpp in Sources */,
+				C6A2515419135D4100A2DA8F /* FSParsePlaylistRequest.m in Sources */,
+				C6A2515619135D4100A2DA8F /* FSPlaylistItem.m in Sources */,
+				C6A2513A19135D3800A2DA8F /* audio_queue.cpp in Sources */,
+				C6A2518C1913750100A2DA8F /* MainViewController.m in Sources */,
+				C6A250F919135C6100A2DA8F /* main.m in Sources */,
+				C6A2515519135D4100A2DA8F /* FSParseRssPodcastFeedRequest.m in Sources */,
+				C6A2515219135D4100A2DA8F /* FSAudioStream.mm in Sources */,
+				C6A2515819135D4100A2DA8F /* Reachability.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6A2510619135C6100A2DA8F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6A2511819135C6100A2DA8F /* PlanetXiliumRadioTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C6A2511019135C6100A2DA8F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C6A250E819135C6100A2DA8F /* PlanetXiliumRadio */;
+			targetProxy = C6A2510F19135C6100A2DA8F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C6A250F519135C6100A2DA8F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C6A250F619135C6100A2DA8F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C6A250FE19135C6100A2DA8F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C6A250FF19135C6100A2DA8F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C6A2511419135C6100A2DA8F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C6A2511519135C6100A2DA8F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C6A2511919135C6100A2DA8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		C6A2511A19135C6100A2DA8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C6A2511C19135C6100A2DA8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PlanetXiliumRadio/PlanetXiliumRadio-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SDKROOT)/usr/include/libxml2",
+				);
+				INFOPLIST_FILE = "PlanetXiliumRadio/PlanetXiliumRadio-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		C6A2511D19135C6100A2DA8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PlanetXiliumRadio/PlanetXiliumRadio-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SDKROOT)/usr/include/libxml2",
+				);
+				INFOPLIST_FILE = "PlanetXiliumRadio/PlanetXiliumRadio-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		C6A2511F19135C6100A2DA8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PlanetXiliumRadio.app/PlanetXiliumRadio";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PlanetXiliumRadio/PlanetXiliumRadio-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "PlanetXiliumRadioTests/PlanetXiliumRadioTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		C6A2512019135C6100A2DA8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PlanetXiliumRadio.app/PlanetXiliumRadio";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PlanetXiliumRadio/PlanetXiliumRadio-Prefix.pch";
+				INFOPLIST_FILE = "PlanetXiliumRadioTests/PlanetXiliumRadioTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C6A250E419135C6100A2DA8F /* Build configuration list for PBXProject "PlanetXiliumRadio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6A2511919135C6100A2DA8F /* Debug */,
+				C6A2511A19135C6100A2DA8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C6A2511B19135C6100A2DA8F /* Build configuration list for PBXNativeTarget "PlanetXiliumRadio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6A2511C19135C6100A2DA8F /* Debug */,
+				C6A2511D19135C6100A2DA8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C6A2511E19135C6100A2DA8F /* Build configuration list for PBXNativeTarget "PlanetXiliumRadioTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6A2511F19135C6100A2DA8F /* Debug */,
+				C6A2512019135C6100A2DA8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C6A250E119135C6100A2DA8F /* Project object */;
+}
