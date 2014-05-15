@@ -231,6 +231,11 @@
     [self.audioStream pause];
 }
 
+- (void)setVolume:(float)volume
+{
+    [self.audioStream setVolume:volume];
+}
+
 /*
  * =======================================
  * Properties

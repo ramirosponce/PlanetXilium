@@ -32,5 +32,6 @@
 
 - (IBAction)playAction:(id)sender;
 - (IBAction)shareAction:(id)sender;
+- (IBAction)volumeValueChangeAction:(id)sender;
 
 @end

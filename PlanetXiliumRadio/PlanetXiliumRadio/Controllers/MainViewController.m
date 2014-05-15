@@ -86,6 +86,11 @@
     
     //_paused = NO;
     [tweetView setBackgroundColor:[UIColor clearColor]];
+    
+    // set min and max value for volume slider
+    [radio_slider setMinimumValue:0.0];
+    [radio_slider setMaximumValue:1.0];
+    
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:@"http://www.blackberry-techcenter.com/twitterapi/index.php" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
          NSLog(@"JSON: %@", responseObject);
@@ -172,6 +177,7 @@
         if (_audioController == nil) {
             _audioController = [[FSAudioController alloc] init];
             _audioController.url = [NSURL URLWithString:RADIO_URL];
+            
         }
         [_audioController play];
         [play_pause_button setImage:[UIImage imageNamed:@"radio_pause_button.png"] forState:UIControlStateNormal];
@@ -221,7 +227,8 @@
             [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
             radio_state.text = @""; //@"Playing...";
             //_paused = NO;
-            
+            [radio_slider setValue:0.5 animated:YES];
+            [_audioController setVolume:0.5];
             break;
         case kFsAudioStreamFailed:
             [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
@@ -402,6 +409,14 @@
         
     }
 
+}
+
+- (IBAction)volumeValueChangeAction:(id)sender
+{
+    UISlider* slider = (UISlider*)sender;
+    if (_audioController != nil && _audioController.isPlaying) {
+        [_audioController setVolume:slider.value];
+    }
 }
 /*
 #pragma mark - Navigation

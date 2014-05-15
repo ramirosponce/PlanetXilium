@@ -71,6 +71,10 @@
 - (BOOL)isPlaying;
 
 /**
+ * Sets the audio stream volume from 0.0 to 1.0.
+ */
+- (void)setVolume:(float)volume;
+/**
  * The stream URL.
  */
 @property (nonatomic,assign) NSURL *url;

@@ -32,13 +32,6 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="YTh-xo-CS0">
-                                <rect key="frame" x="10" y="20" width="40" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="menu_button.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MFl-Id-dKp">
                                 <rect key="frame" x="139" y="313" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -135,6 +128,9 @@
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="iG9-Zm-cWD">
                                 <rect key="frame" x="102" y="500" width="118" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="volumeValueChangeAction:" destination="vXZ-lx-hvc" eventType="valueChanged" id="Iy5-io-nm0"/>
+                                </connections>
                             </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -142,6 +138,7 @@
                     <connections>
                         <outlet property="dial_label" destination="Wik-tA-dsx" id="QzY-L3-PQV"/>
                         <outlet property="play_pause_button" destination="2vC-Rs-FnL" id="a51-gx-e0L"/>
+                        <outlet property="radio_slider" destination="iG9-Zm-cWD" id="Dcu-vd-48N"/>
                         <outlet property="share_button" destination="MFl-Id-dKp" id="gBK-85-jQD"/>
                         <outlet property="title_label" destination="DRJ-zv-baI" id="6XL-aS-nnE"/>
                         <outlet property="tweetPage" destination="xPx-Ph-6W6" id="Agx-pH-jAt"/>
@@ -156,7 +153,6 @@
         <image name="button_background.png" width="182" height="182"/>
         <image name="circle_image.png" width="122" height="122"/>
         <image name="home_background_640_1136.png" width="640" height="1136"/>
-        <image name="menu_button.png" width="25" height="25"/>
         <image name="radio_play_button.png" width="79" height="79"/>
         <image name="share_button.png" width="11" height="11"/>
     </resources>
