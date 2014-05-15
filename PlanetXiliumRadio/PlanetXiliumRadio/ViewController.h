@@ -12,8 +12,7 @@
 @interface ViewController : UIViewController
 {
     __weak IBOutlet UILabel* radio_state;
-    
-    
+  
     FSAudioController *_audioController;
     
     // State

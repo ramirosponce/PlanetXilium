@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>0DACE3DD-2996-4102-B623-DCA6E7D36794</string>
+	<key>IDESourceControlProjectName</key>
+	<string>PlanetXiliumRadio</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>8CE0FC20-855E-4C39-8826-D5BD9FE30866</key>
+		<string>https://github.com/ramirosponce/PlanetXilium</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>PlanetXiliumRadio/PlanetXiliumRadio.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>8CE0FC20-855E-4C39-8826-D5BD9FE30866</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/ramirosponce/PlanetXilium</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>8CE0FC20-855E-4C39-8826-D5BD9FE30866</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>8CE0FC20-855E-4C39-8826-D5BD9FE30866</string>
+			<key>IDESourceControlWCCName</key>
+			<string>PlanetXilium</string>
+		</dict>
+	</array>
+</dict>
+</plist>

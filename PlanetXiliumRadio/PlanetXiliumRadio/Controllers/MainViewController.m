@@ -7,14 +7,19 @@
 //
 
 #import "MainViewController.h"
-
+#import "AFNetworking.h"
 #import "FSAudioStream.h"
 #import "FSAudioController.h"
+#import "TweetCollectionViewCell.h"
 
 #define RADIO_URL @"http://173.236.28.138:8430/listen.pls"
 
 @interface MainViewController ()
-
+{
+    NSArray* data;
+    int selected_index;
+    NSTimer* tweetTimer;
+}
 @end
 
 @implementation MainViewController
@@ -36,8 +41,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	//radio_state.text = @"OFF";
-    
     [self setupInterface];
 }
 
@@ -71,17 +74,76 @@
 
 - (void) setupInterface
 {
+    
     title_label.text = @"Radio Lafinur";
     dial_label.text = @"90.9";
     radio_state.text = @"";
-    
     [title_label setFont:[UIFont fontWithName:FONT_DOSIS_LIGHT size:19.0]];
     [dial_label setFont:[UIFont fontWithName:FONT_MEDIUM size:40.0]];
     [radio_state setFont:[UIFont fontWithName:FONT_DOSIS_LIGHT size:19.0]];
     
+    [radio_slider addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
+    
     //_paused = NO;
+    [tweetView setBackgroundColor:[UIColor clearColor]];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:@"http://www.blackberry-techcenter.com/twitterapi/index.php" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+         NSLog(@"JSON: %@", responseObject);
+        data=  (NSArray *)responseObject;
+        [tweetView reloadData];
+        [tweetPage setNumberOfPages:data.count];
+        tweetTimer =[NSTimer scheduledTimerWithTimeInterval:10.0
+                                                     target:self
+                                                   selector:@selector(playCarrousel)
+                                                   userInfo:nil
+                                                    repeats:YES];
+       [self performSelector:@selector(updateData) withObject: nil afterDelay:300.0];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+   
 }
-
+-(void) updateData
+{
+    NSLog(@"reloading DATA");
+    [tweetTimer invalidate];
+    tweetTimer = nil;
+    selected_index=0;
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:@"http://www.blackberry-techcenter.com/twitterapi/index.php" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+        data=  (NSArray *)responseObject;
+        [tweetView reloadData];
+        [tweetPage setNumberOfPages:data.count];
+        
+        NSIndexPath *item_idx;
+        selected_index=0;
+        item_idx = [NSIndexPath indexPathForItem:selected_index++ inSection:0];
+        [tweetView scrollToItemAtIndexPath:item_idx atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:NO];
+        tweetTimer =[NSTimer scheduledTimerWithTimeInterval:10.0
+                                                     target:self
+                                                   selector:@selector(playCarrousel)
+                                                   userInfo:nil
+                                                    repeats:YES];
+        [self performSelector:@selector(updateData) withObject: nil afterDelay:300.0];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+}
+-(void) playCarrousel
+{
+         NSIndexPath *item_idx;
+        if(selected_index<(data.count-1)){
+            selected_index++;
+            item_idx = [NSIndexPath indexPathForItem:selected_index++ inSection:0];
+            [tweetView scrollToItemAtIndexPath:item_idx atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
+        }
+        else {
+            selected_index=0;
+            item_idx = [NSIndexPath indexPathForItem:selected_index++ inSection:0];
+            [tweetView scrollToItemAtIndexPath:item_idx atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:NO];
+        }
+}
 - (void) setupRemoteControl
 {
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
@@ -105,14 +167,14 @@
 {
     if (_audioController != nil && _audioController.isPlaying) {
         [_audioController stop];
-        [play_pause_button setImage:[UIImage imageNamed:@"play_button"] forState:UIControlStateNormal];
+        [play_pause_button setImage:[UIImage imageNamed:@"radio_play_button"] forState:UIControlStateNormal];
     }else{
         if (_audioController == nil) {
             _audioController = [[FSAudioController alloc] init];
             _audioController.url = [NSURL URLWithString:RADIO_URL];
         }
         [_audioController play];
-        [play_pause_button setImage:[UIImage imageNamed:@"pause_button"] forState:UIControlStateNormal];
+        [play_pause_button setImage:[UIImage imageNamed:@"radio_pause_button.png"] forState:UIControlStateNormal];
     }
 }
 
@@ -271,13 +333,76 @@
 - (void)applicationDidEnterBackgroundNotification:(NSNotification *)notification
 {
     // do something when the application enter in background
+    [tweetTimer invalidate];
+    tweetTimer = nil;
+    
 }
 
 - (void)applicationWillEnterForegroundNotification:(NSNotification *)notification
 {
     // do something when the application appear from foreground
+    tweetTimer =[NSTimer scheduledTimerWithTimeInterval:10.0
+                                                 target:self
+                                               selector:@selector(playCarrousel)
+                                               userInfo:nil
+                                                repeats:YES];
+
+}
+#pragma mark -
+#pragma mark UICollectionViewDataSource
+
+-(NSInteger)numberOfSectionsInCollectionView:
+(UICollectionView *)collectionView
+{
+    return 1;
 }
 
+#pragma mark -
+#pragma mark UICollectionViewDelegates
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return data.count;
+
+}
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString* CellIdentifier = @"TweetCell";
+
+    TweetCollectionViewCell* cell = (TweetCollectionViewCell*)[collectionView
+                                                    dequeueReusableCellWithReuseIdentifier:CellIdentifier
+                                                    forIndexPath:indexPath];
+    if (cell == nil) {
+        cell = (TweetCollectionViewCell*)[[UICollectionViewCell alloc] init];
+    }
+    [cell populate:[data objectAtIndex:indexPath.row]];
+    NSLog(@"entre populate");
+    return cell;
+}
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [tweetTimer invalidate];
+    tweetTimer = nil;
+}
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    CGFloat pageWidth = tweetView.frame.size.width;
+    selected_index=(tweetView.contentOffset.x + pageWidth / 2) / pageWidth;
+    tweetPage.currentPage =selected_index;
+    if(!tweetTimer){
+    tweetTimer =[NSTimer scheduledTimerWithTimeInterval:10.0
+                                                 target:self
+                                               selector:@selector(playCarrousel)
+                                               userInfo:nil
+                                                repeats:YES];
+    }
+}
+
+- (IBAction)sliderValueChanged:(UISlider *)sender {
+    if (_audioController != nil && _audioController.isPlaying) {
+        
+    }
+
+}
 /*
 #pragma mark - Navigation
 
