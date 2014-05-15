@@ -27,12 +27,18 @@
     tweetScreenName.text =  [NSString stringWithFormat:@"@%@",[[data objectForKey:@"user"]objectForKey:@"screen_name"]];
     NSURL *imageURL =  [NSURL URLWithString: [[data objectForKey:@"user"]objectForKey:@"profile_image_url"]];
     NSLog(@"imageURL %@",imageURL);
-    [tweetImage setImageWithURL:imageURL placeholderImage:nil options:SDWebImageCacheMemoryOnly];
+    [tweetImage setImageWithURL:imageURL placeholderImage:[UIImage imageNamed:@"empty_avatar"] options:SDWebImageCacheMemoryOnly];
     [tweetImage setClipsToBounds:YES];
     [tweetImage.layer setCornerRadius:tweetImage.frame.size.width/2];
-    [tweetImage.layer setBorderColor:[[UIColor whiteColor]CGColor]];
-    [tweetImage.layer setBorderWidth: 1.0f];
+    [tweetImage.layer setBorderColor:[UIColorFromRGB(0xDD7248) CGColor]];
+    [tweetImage.layer setBorderWidth: 2.0f];
     
+    [self makeDynamic];
+}
+
+
+- (void) makeDynamic
+{
     UIFont* titleFont = tweetName.font;
     NSDictionary *stringAttributes = [NSDictionary dictionaryWithObject:titleFont forKey: NSFontAttributeName];
     
@@ -43,8 +49,8 @@
     titleExpectedLabelSize = [tweetName.text boundingRectWithSize:titleConstraintSize
                                                           options:NSStringDrawingTruncatesLastVisibleLine|NSStringDrawingUsesLineFragmentOrigin
                                                        attributes:stringAttributes context:nil].size;
-    titleNewWidth = titleExpectedLabelSize.width+1;
-    //titleNewHeight += 5;
+    titleNewWidth = titleExpectedLabelSize.width;
+    titleNewWidth += 5;
     
     CGRect  titleFrame = tweetName.frame;
     titleFrame.size.width = titleNewWidth;
@@ -53,15 +59,6 @@
     CGRect  screenNameFrame = tweetScreenName.frame;
     screenNameFrame.origin.x = tweetName.frame.origin.x + tweetName.frame.size.width;
     tweetScreenName.frame = screenNameFrame;
-    //tweetScreenName.frame.origin.x= tweetScreenName.frame.origin.x+titleNewWidth;
 }
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end

@@ -12,8 +12,6 @@
 #import "FSAudioController.h"
 #import "TweetCollectionViewCell.h"
 
-#define RADIO_URL @"http://173.236.28.138:8430/listen.pls"
-
 @interface MainViewController ()
 {
     NSArray* data;
@@ -75,14 +73,21 @@
 - (void) setupInterface
 {
     
-    title_label.text = @"Radio Lafinur";
+    title_label.text = NSLocalizedString(@"Planeta Xilium", @"Planeta Xilium");
     dial_label.text = @"90.9";
     radio_state.text = @"";
-    [title_label setFont:[UIFont fontWithName:FONT_DOSIS_LIGHT size:19.0]];
-    [dial_label setFont:[UIFont fontWithName:FONT_MEDIUM size:40.0]];
+    [title_label setFont:[UIFont fontWithName:FONT_TYPENOKSIDI size:19.0]];
+    [dial_label setFont:[UIFont fontWithName:FONT_TYPENOKSIDI size:40.0]];
     [radio_state setFont:[UIFont fontWithName:FONT_DOSIS_LIGHT size:19.0]];
     
     [radio_slider addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
+    
+    NSString* image_name = @"";
+    if (IS_IPHONE_5)
+        image_name = @"home_background_640_1136.png";
+    else
+        image_name = @"home_background_640_960.png";
+    [background_image setImage:[UIImage imageNamed:image_name]];
     
     //_paused = NO;
     [tweetView setBackgroundColor:[UIColor clearColor]];

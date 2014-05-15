@@ -13,6 +13,7 @@
 @interface MainViewController : UIViewController <UICollectionViewDelegate,UICollectionViewDataSource,UIScrollViewDelegate>
 {
     // UI
+    __weak IBOutlet UIImageView* background_image;
     __weak IBOutlet UILabel* title_label;
     __weak IBOutlet UILabel* dial_label;
     __weak IBOutlet UILabel* radio_state;
