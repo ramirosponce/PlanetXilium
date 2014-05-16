@@ -5,34 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>9BF5F219-AFCF-4781-AF60-EA5C7AC8BE1C</string>
+	<string>66F2FF5D-DACC-4124-811D-6931B5E8BE59</string>
 	<key>IDESourceControlProjectName</key>
 	<string>PlanetXiliumRadio</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>14C0A006-75F3-4BE0-B880-E95675D9A720</key>
-		<string>ssh://github.com/ramirosponce/PlanetXilium.git</string>
+		<key>ACF0C701-E75D-4392-9528-E9AD05FF45CD</key>
+		<string>https://github.com/ramirosponce/PlanetXilium</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>PlanetXiliumRadio/PlanetXiliumRadio.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>14C0A006-75F3-4BE0-B880-E95675D9A720</key>
+		<key>ACF0C701-E75D-4392-9528-E9AD05FF45CD</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/ramirosponce/PlanetXilium.git</string>
+	<string>https://github.com/ramirosponce/PlanetXilium</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>14C0A006-75F3-4BE0-B880-E95675D9A720</string>
+	<string>ACF0C701-E75D-4392-9528-E9AD05FF45CD</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>14C0A006-75F3-4BE0-B880-E95675D9A720</string>
+			<string>ACF0C701-E75D-4392-9528-E9AD05FF45CD</string>
 			<key>IDESourceControlWCCName</key>
 			<string>PlanetXilium</string>
 		</dict>

@@ -25,6 +25,9 @@
 		0151E83E1924326F00654374 /* slider-track-fill@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0151E8381924326F00654374 /* slider-track-fill@2x.png */; };
 		0151E83F1924326F00654374 /* slider-track.png in Resources */ = {isa = PBXBuildFile; fileRef = 0151E8391924326F00654374 /* slider-track.png */; };
 		0151E8401924326F00654374 /* slider-track@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0151E83A1924326F00654374 /* slider-track@2x.png */; };
+		0170F66B19253C8600C8E329 /* centerIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0170F66619253C8600C8E329 /* centerIcon@2x.png */; };
+		0170F66C19253C8600C8E329 /* UIScrollView+UzysCircularProgressPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 0170F66819253C8600C8E329 /* UIScrollView+UzysCircularProgressPullToRefresh.m */; };
+		0170F66D19253C8600C8E329 /* UzysRadialProgressActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0170F66A19253C8600C8E329 /* UzysRadialProgressActivityIndicator.m */; };
 		01A4743A1922AF4A00D5F226 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A474281922AF4A00D5F226 /* AFHTTPRequestOperation.m */; };
 		01A4743B1922AF4A00D5F226 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A4742A1922AF4A00D5F226 /* AFHTTPRequestOperationManager.m */; };
 		01A4743C1922AF4A00D5F226 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A4742C1922AF4A00D5F226 /* AFHTTPSessionManager.m */; };
@@ -35,6 +38,11 @@
 		01A474411922AF4A00D5F226 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A474371922AF4A00D5F226 /* AFURLResponseSerialization.m */; };
 		01A474421922AF4A00D5F226 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A474391922AF4A00D5F226 /* AFURLSessionManager.m */; };
 		01A474451922B62800D5F226 /* TweetCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A474441922B62800D5F226 /* TweetCollectionViewCell.m */; };
+		01C4D81B192541BF00206D1B /* TweetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C4D81A192541BF00206D1B /* TweetViewController.m */; };
+		01C4D81E192552EE00206D1B /* planet_xilium_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 01C4D81D192552EE00206D1B /* planet_xilium_logo.png */; };
+		01C4D821192556CD00206D1B /* TweetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C4D820192556CD00206D1B /* TweetTableViewCell.m */; };
+		01C4D8291925806800206D1B /* xilium_head@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01C4D8281925806800206D1B /* xilium_head@2x.png */; };
+		01C4D82B1925806E00206D1B /* xilium_head.png in Resources */ = {isa = PBXBuildFile; fileRef = 01C4D82A1925806E00206D1B /* xilium_head.png */; };
 		01C6A23D1922DE88007E9E4F /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C6A22A1922DE88007E9E4F /* MKAnnotationView+WebCache.m */; };
 		01C6A23E1922DE88007E9E4F /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C6A22C1922DE88007E9E4F /* SDImageCache.m */; };
 		01C6A23F1922DE88007E9E4F /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C6A2301922DE88007E9E4F /* SDWebImageDecoder.m */; };
@@ -142,6 +150,11 @@
 		0151E8381924326F00654374 /* slider-track-fill@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slider-track-fill@2x.png"; sourceTree = "<group>"; };
 		0151E8391924326F00654374 /* slider-track.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slider-track.png"; sourceTree = "<group>"; };
 		0151E83A1924326F00654374 /* slider-track@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slider-track@2x.png"; sourceTree = "<group>"; };
+		0170F66619253C8600C8E329 /* centerIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "centerIcon@2x.png"; sourceTree = "<group>"; };
+		0170F66719253C8600C8E329 /* UIScrollView+UzysCircularProgressPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+UzysCircularProgressPullToRefresh.h"; sourceTree = "<group>"; };
+		0170F66819253C8600C8E329 /* UIScrollView+UzysCircularProgressPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+UzysCircularProgressPullToRefresh.m"; sourceTree = "<group>"; };
+		0170F66919253C8600C8E329 /* UzysRadialProgressActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UzysRadialProgressActivityIndicator.h; sourceTree = "<group>"; };
+		0170F66A19253C8600C8E329 /* UzysRadialProgressActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UzysRadialProgressActivityIndicator.m; sourceTree = "<group>"; };
 		01A474271922AF4A00D5F226 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		01A474281922AF4A00D5F226 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		01A474291922AF4A00D5F226 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -161,8 +174,15 @@
 		01A474371922AF4A00D5F226 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		01A474381922AF4A00D5F226 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		01A474391922AF4A00D5F226 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
-		01A474431922B62800D5F226 /* TweetCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TweetCollectionViewCell.h; path = ../TweetCollectionViewCell.h; sourceTree = "<group>"; };
-		01A474441922B62800D5F226 /* TweetCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TweetCollectionViewCell.m; path = ../TweetCollectionViewCell.m; sourceTree = "<group>"; };
+		01A474431922B62800D5F226 /* TweetCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetCollectionViewCell.h; sourceTree = "<group>"; };
+		01A474441922B62800D5F226 /* TweetCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetCollectionViewCell.m; sourceTree = "<group>"; };
+		01C4D819192541BE00206D1B /* TweetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetViewController.h; sourceTree = "<group>"; };
+		01C4D81A192541BF00206D1B /* TweetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetViewController.m; sourceTree = "<group>"; };
+		01C4D81D192552EE00206D1B /* planet_xilium_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = planet_xilium_logo.png; sourceTree = "<group>"; };
+		01C4D81F192556CD00206D1B /* TweetTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetTableViewCell.h; sourceTree = "<group>"; };
+		01C4D820192556CD00206D1B /* TweetTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetTableViewCell.m; sourceTree = "<group>"; };
+		01C4D8281925806800206D1B /* xilium_head@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xilium_head@2x.png"; sourceTree = "<group>"; };
+		01C4D82A1925806E00206D1B /* xilium_head.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xilium_head.png; sourceTree = "<group>"; };
 		01C6A2291922DE88007E9E4F /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		01C6A22A1922DE88007E9E4F /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
 		01C6A22B1922DE88007E9E4F /* SDImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDImageCache.h; sourceTree = "<group>"; };
@@ -310,6 +330,9 @@
 		0151E81A1923F30400654374 /* Images Xilium */ = {
 			isa = PBXGroup;
 			children = (
+				01C4D82A1925806E00206D1B /* xilium_head.png */,
+				01C4D8281925806800206D1B /* xilium_head@2x.png */,
+				01C4D81D192552EE00206D1B /* planet_xilium_logo.png */,
 				C6F646A119247DB400FEA5AD /* empty_avatar@2x.png */,
 				C6F646A219247DB400FEA5AD /* empty_avatar.png */,
 				C6F6469B19246E2100FEA5AD /* container_background.png */,
@@ -336,6 +359,18 @@
 			path = "Images Xilium";
 			sourceTree = "<group>";
 		};
+		0170F66519253C8600C8E329 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				0170F66619253C8600C8E329 /* centerIcon@2x.png */,
+				0170F66719253C8600C8E329 /* UIScrollView+UzysCircularProgressPullToRefresh.h */,
+				0170F66819253C8600C8E329 /* UIScrollView+UzysCircularProgressPullToRefresh.m */,
+				0170F66919253C8600C8E329 /* UzysRadialProgressActivityIndicator.h */,
+				0170F66A19253C8600C8E329 /* UzysRadialProgressActivityIndicator.m */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
 		01A474261922AF4A00D5F226 /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -360,6 +395,17 @@
 				01A474391922AF4A00D5F226 /* AFURLSessionManager.m */,
 			);
 			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		01C4D81C1925447A00206D1B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				01A474431922B62800D5F226 /* TweetCollectionViewCell.h */,
+				01A474441922B62800D5F226 /* TweetCollectionViewCell.m */,
+				01C4D81F192556CD00206D1B /* TweetTableViewCell.h */,
+				01C4D820192556CD00206D1B /* TweetTableViewCell.m */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		01C6A2281922DE88007E9E4F /* SDWebImage */ = {
@@ -442,6 +488,8 @@
 		C6A250F219135C6100A2DA8F /* PlanetXiliumRadio */ = {
 			isa = PBXGroup;
 			children = (
+				01C4D81C1925447A00206D1B /* Cells */,
+				0170F66519253C8600C8E329 /* Library */,
 				C6A2519519137DB900A2DA8F /* Classes */,
 				C6A25189191374E400A2DA8F /* Controllers */,
 				C6A251591913737C00A2DA8F /* Resources */,
@@ -601,10 +649,10 @@
 		C6A25189191374E400A2DA8F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				01A474431922B62800D5F226 /* TweetCollectionViewCell.h */,
-				01A474441922B62800D5F226 /* TweetCollectionViewCell.m */,
 				C6A2518A1913750100A2DA8F /* MainViewController.h */,
 				C6A2518B1913750100A2DA8F /* MainViewController.m */,
+				01C4D819192541BE00206D1B /* TweetViewController.h */,
+				01C4D81A192541BF00206D1B /* TweetViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -693,6 +741,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0170F66B19253C8600C8E329 /* centerIcon@2x.png in Resources */,
 				C6A25178191374B700A2DA8F /* circle_image.png in Resources */,
 				C6A2517B191374B700A2DA8F /* main_background@2x.png in Resources */,
 				0151E82F1923F30400654374 /* home_background_640_960@2x.png in Resources */,
@@ -711,6 +760,7 @@
 				0151E83B1924326F00654374 /* slider-cap.png in Resources */,
 				C6A25163191373BC00A2DA8F /* Dosis-Bold.otf in Resources */,
 				C6A25169191373BC00A2DA8F /* Dosis-SemiBold.otf in Resources */,
+				01C4D81E192552EE00206D1B /* planet_xilium_logo.png in Resources */,
 				C6A2517F191374B700A2DA8F /* next_button@2x.png in Resources */,
 				0151E8321923F30400654374 /* radio_play_button.png in Resources */,
 				C6A250F719135C6100A2DA8F /* InfoPlist.strings in Resources */,
@@ -724,6 +774,7 @@
 				C6A25184191374B700A2DA8F /* sound_image_background.png in Resources */,
 				0151E8281923F30400654374 /* button_background.png in Resources */,
 				0151E82A1923F30400654374 /* Default-568h@2x.png in Resources */,
+				01C4D82B1925806E00206D1B /* xilium_head.png in Resources */,
 				C6F6469D19246E2100FEA5AD /* container_background.png in Resources */,
 				C6A25165191373BC00A2DA8F /* Dosis-ExtraLight.otf in Resources */,
 				C6A25182191374B700A2DA8F /* share_button.png in Resources */,
@@ -733,6 +784,7 @@
 				C6A25166191373BC00A2DA8F /* Dosis-Light.otf in Resources */,
 				0151E82E1923F30400654374 /* home_background_640_960.png in Resources */,
 				0151E83F1924326F00654374 /* slider-track.png in Resources */,
+				01C4D8291925806800206D1B /* xilium_head@2x.png in Resources */,
 				C6A25183191374B700A2DA8F /* share_button@2x.png in Resources */,
 				0151E8291923F30400654374 /* button_background@2x.png in Resources */,
 				C6A2517E191374B700A2DA8F /* next_button.png in Resources */,
@@ -768,6 +820,7 @@
 				C6A2513C19135D3800A2DA8F /* file_output.cpp in Sources */,
 				01A4743E1922AF4A00D5F226 /* AFSecurityPolicy.m in Sources */,
 				01A4743B1922AF4A00D5F226 /* AFHTTPRequestOperationManager.m in Sources */,
+				0170F66C19253C8600C8E329 /* UIScrollView+UzysCircularProgressPullToRefresh.m in Sources */,
 				01C6A24F1922DF85007E9E4F /* UIImage+Resize.m in Sources */,
 				01A4743A1922AF4A00D5F226 /* AFHTTPRequestOperation.m in Sources */,
 				C6A2510319135C6100A2DA8F /* ViewController.m in Sources */,
@@ -780,11 +833,14 @@
 				01C6A23F1922DE88007E9E4F /* SDWebImageDecoder.m in Sources */,
 				C6A250FD19135C6100A2DA8F /* AppDelegate.m in Sources */,
 				01C6A2441922DE88007E9E4F /* UIImageView+WebCache.m in Sources */,
+				01C4D821192556CD00206D1B /* TweetTableViewCell.m in Sources */,
+				0170F66D19253C8600C8E329 /* UzysRadialProgressActivityIndicator.m in Sources */,
 				01C6A2411922DE88007E9E4F /* SDWebImageManager.m in Sources */,
 				C6A2515119135D4100A2DA8F /* FSAudioController.m in Sources */,
 				C6A2513F19135D3800A2DA8F /* stream_configuration.cpp in Sources */,
 				C6A2513B19135D3800A2DA8F /* audio_stream.cpp in Sources */,
 				01A4743C1922AF4A00D5F226 /* AFHTTPSessionManager.m in Sources */,
+				01C4D81B192541BF00206D1B /* TweetViewController.m in Sources */,
 				C6A2515419135D4100A2DA8F /* FSParsePlaylistRequest.m in Sources */,
 				C6A2515619135D4100A2DA8F /* FSPlaylistItem.m in Sources */,
 				01A4743F1922AF4A00D5F226 /* AFURLConnectionOperation.m in Sources */,

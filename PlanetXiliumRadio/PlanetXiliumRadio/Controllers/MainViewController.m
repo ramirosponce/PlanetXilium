@@ -80,8 +80,6 @@
     [dial_label setFont:[UIFont fontWithName:FONT_TYPENOKSIDI size:40.0]];
     [radio_state setFont:[UIFont fontWithName:FONT_DOSIS_LIGHT size:19.0]];
     
-    [radio_slider addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
-    
     NSString* image_name = @"";
     if (IS_IPHONE_5)
         image_name = @"home_background_640_1136.png";
@@ -376,6 +374,12 @@
     return data.count;
 
 }
+-(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+  
+    [self performSegueWithIdentifier:@"tweetSegue" sender:nil];
+
+}
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString* CellIdentifier = @"TweetCell";
@@ -397,25 +401,19 @@
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    CGFloat pageWidth = tweetView.frame.size.width;
-    selected_index=(tweetView.contentOffset.x + pageWidth / 2) / pageWidth;
-    tweetPage.currentPage =selected_index;
-    if(!tweetTimer){
-    tweetTimer =[NSTimer scheduledTimerWithTimeInterval:10.0
-                                                 target:self
-                                               selector:@selector(playCarrousel)
-                                               userInfo:nil
-                                                repeats:YES];
+    if (data.count>0) {
+        CGFloat pageWidth = tweetView.frame.size.width;
+        selected_index=(tweetView.contentOffset.x + pageWidth / 2) / pageWidth;
+        tweetPage.currentPage =selected_index;
+        if(!tweetTimer){
+            tweetTimer =[NSTimer scheduledTimerWithTimeInterval:10.0
+                                                         target:self
+                                                       selector:@selector(playCarrousel)
+                                                       userInfo:nil
+                                                        repeats:YES];
+        }
     }
 }
-
-- (IBAction)sliderValueChanged:(UISlider *)sender {
-    if (_audioController != nil && _audioController.isPlaying) {
-        
-    }
-
-}
-
 - (IBAction)volumeValueChangeAction:(id)sender
 {
     UISlider* slider = (UISlider*)sender;
