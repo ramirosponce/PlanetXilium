@@ -55,6 +55,10 @@
 		01C6A24F1922DF85007E9E4F /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C6A2491922DF85007E9E4F /* UIImage+Resize.m */; };
 		01C6A2501922DF85007E9E4F /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C6A24B1922DF85007E9E4F /* UIImage+RoundedCorner.m */; };
 		01C6A2511922DF85007E9E4F /* UIImage+Scaling.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C6A24D1922DF85007E9E4F /* UIImage+Scaling.m */; };
+		C6085B4D192B040900BF0A11 /* rockbox_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = C6085B4C192B040900BF0A11 /* rockbox_logo.png */; };
+		C6085B4F192B067900BF0A11 /* Lobster.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C6085B4E192B067900BF0A11 /* Lobster.ttf */; };
+		C6085B52192B189A00BF0A11 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = C6085B50192B189A00BF0A11 /* arrow.png */; };
+		C6085B53192B189A00BF0A11 /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6085B51192B189A00BF0A11 /* arrow@2x.png */; };
 		C6A250ED19135C6100A2DA8F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6A250EC19135C6100A2DA8F /* Foundation.framework */; };
 		C6A250EF19135C6100A2DA8F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6A250EE19135C6100A2DA8F /* CoreGraphics.framework */; };
 		C6A250F119135C6100A2DA8F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6A250F019135C6100A2DA8F /* UIKit.framework */; };
@@ -211,6 +215,10 @@
 		01C6A24B1922DF85007E9E4F /* UIImage+RoundedCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RoundedCorner.m"; sourceTree = "<group>"; };
 		01C6A24C1922DF85007E9E4F /* UIImage+Scaling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Scaling.h"; sourceTree = "<group>"; };
 		01C6A24D1922DF85007E9E4F /* UIImage+Scaling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Scaling.m"; sourceTree = "<group>"; };
+		C6085B4C192B040900BF0A11 /* rockbox_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rockbox_logo.png; sourceTree = "<group>"; };
+		C6085B4E192B067900BF0A11 /* Lobster.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Lobster.ttf; sourceTree = "<group>"; };
+		C6085B50192B189A00BF0A11 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
+		C6085B51192B189A00BF0A11 /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@2x.png"; sourceTree = "<group>"; };
 		C6A250E919135C6100A2DA8F /* PlanetXiliumRadio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlanetXiliumRadio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6A250EC19135C6100A2DA8F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C6A250EE19135C6100A2DA8F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -617,6 +625,7 @@
 				C6A25160191373BC00A2DA8F /* Dosis-Medium.otf */,
 				C6A25161191373BC00A2DA8F /* Dosis-Regular.otf */,
 				C6A25162191373BC00A2DA8F /* Dosis-SemiBold.otf */,
+				C6085B4E192B067900BF0A11 /* Lobster.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -624,6 +633,9 @@
 		C6A2515B191373A300A2DA8F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C6085B50192B189A00BF0A11 /* arrow.png */,
+				C6085B51192B189A00BF0A11 /* arrow@2x.png */,
+				C6085B4C192B040900BF0A11 /* rockbox_logo.png */,
 				C6A2518D19137D2100A2DA8F /* pause_button.png */,
 				C6A2518E19137D2100A2DA8F /* pause_button@2x.png */,
 				C6A2518F19137D2100A2DA8F /* play_button.png */,
@@ -742,6 +754,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0170F66B19253C8600C8E329 /* centerIcon@2x.png in Resources */,
+				C6085B52192B189A00BF0A11 /* arrow.png in Resources */,
 				C6A25178191374B700A2DA8F /* circle_image.png in Resources */,
 				C6A2517B191374B700A2DA8F /* main_background@2x.png in Resources */,
 				0151E82F1923F30400654374 /* home_background_640_960@2x.png in Resources */,
@@ -760,6 +773,7 @@
 				0151E83B1924326F00654374 /* slider-cap.png in Resources */,
 				C6A25163191373BC00A2DA8F /* Dosis-Bold.otf in Resources */,
 				C6A25169191373BC00A2DA8F /* Dosis-SemiBold.otf in Resources */,
+				C6085B4D192B040900BF0A11 /* rockbox_logo.png in Resources */,
 				01C4D81E192552EE00206D1B /* planet_xilium_logo.png in Resources */,
 				C6A2517F191374B700A2DA8F /* next_button@2x.png in Resources */,
 				0151E8321923F30400654374 /* radio_play_button.png in Resources */,
@@ -771,6 +785,7 @@
 				0151E83E1924326F00654374 /* slider-track-fill@2x.png in Resources */,
 				0151E8311923F30400654374 /* radio_pause_button@2x.png in Resources */,
 				C6A2517A191374B700A2DA8F /* main_background.png in Resources */,
+				C6085B53192B189A00BF0A11 /* arrow@2x.png in Resources */,
 				C6A25184191374B700A2DA8F /* sound_image_background.png in Resources */,
 				0151E8281923F30400654374 /* button_background.png in Resources */,
 				0151E82A1923F30400654374 /* Default-568h@2x.png in Resources */,
@@ -794,6 +809,7 @@
 				C6A2519419137D2100A2DA8F /* play_button@2x.png in Resources */,
 				C6A25167191373BC00A2DA8F /* Dosis-Medium.otf in Resources */,
 				C6F6469E19246E2100FEA5AD /* container_background@2x.png in Resources */,
+				C6085B4F192B067900BF0A11 /* Lobster.ttf in Resources */,
 				C6A2517D191374B700A2DA8F /* menu_button@2x.png in Resources */,
 				C6A25181191374B700A2DA8F /* previous_button@2x.png in Resources */,
 			);

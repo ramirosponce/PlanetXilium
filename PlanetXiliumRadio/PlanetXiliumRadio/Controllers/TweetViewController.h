@@ -13,5 +13,9 @@
     __weak IBOutlet UITableView* tweetsTable;
     __weak IBOutlet UIImageView* background_image;
     __weak IBOutlet UIButton* back_button;
+    __weak IBOutlet UILabel* title_label;
 }
+
+- (IBAction) backAction:(id)sender;
+
 @end

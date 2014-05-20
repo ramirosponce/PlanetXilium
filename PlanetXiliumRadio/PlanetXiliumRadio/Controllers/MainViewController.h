@@ -17,12 +17,23 @@
     __weak IBOutlet UILabel* title_label;
     __weak IBOutlet UILabel* dial_label;
     __weak IBOutlet UILabel* radio_state;
-    __weak IBOutlet UIButton* play_pause_button;
+    
     __weak IBOutlet UIButton* share_button;
     __weak IBOutlet UICollectionView* tweetView;
     __weak IBOutlet UICollectionViewCell* tweetCell;
     __weak IBOutlet UIPageControl* tweetPage;
+    
+    __weak IBOutlet UIButton* play_pause_button;
     __weak IBOutlet UISlider* radio_slider;
+    __weak IBOutlet UIView* playerContainerView;
+    
+    __weak IBOutlet UIView* loadingView;
+    __weak IBOutlet UILabel* loadingLabel;
+    
+    __weak IBOutlet UIView* bubble1;
+    __weak IBOutlet UIView* bubble2;
+    __weak IBOutlet UIView* bubble3;
+    
     // State
     BOOL _shouldStartPlaying;
     

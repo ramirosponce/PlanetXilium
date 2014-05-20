@@ -33,6 +33,7 @@
     [self setupInterface];
     // Do any additional setup after loading the view.
 }
+
 -(void)viewWillAppear:(BOOL)animated
 {
     __weak typeof(self) weakSelf =self;
@@ -41,16 +42,19 @@
           [self reloadTweetData];
     }];
 }
+
 - (void) viewDidAppear:(BOOL)animated
 {
     [tweetsTable.pullToRefreshView setBorderWidth:0.5];
     [tweetsTable.pullToRefreshView setImageIcon:[UIImage imageNamed:@"xilium_head"]];
     [tweetsTable.pullToRefreshView setSize:CGSizeMake(40, 40)];
 }
+
 - (void) setupInterface
 {
-    [back_button setUserInteractionEnabled:YES];
-    [back_button addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
+    title_label.text = NSLocalizedString(@"Twitter Xilium", @"Twitter Xilium");
+    [title_label setFont:[UIFont fontWithName:FONT_TYPENOKSIDI size:19.0]];
+    
     [tweetsTable setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     NSString* image_name = @"";
     if (IS_IPHONE_5)
@@ -67,10 +71,13 @@
         NSLog(@"Error: %@", error);
     }];
 }
--(void)backAction
+
+- (IBAction) backAction:(id)sender
 {
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
+
+
 -(void)reloadTweetData
 {
     [tweetsTable stopRefreshAnimation];
@@ -83,11 +90,15 @@
         NSLog(@"Error: %@", error);
     }];
 }
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return data.count;
 }
@@ -105,6 +116,8 @@
     NSLog(@"entre populate");
     return cell;
 }
+
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CGFloat tempHeight=[self getCommentCellHeight2:[data objectAtIndex:indexPath.row]];

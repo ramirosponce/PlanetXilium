@@ -29,24 +29,13 @@
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="MainViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_background_640_960.png" id="x48-hU-pod">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle_image.png" id="9bk-Px-3s2">
-                                <rect key="frame" x="100" y="164" width="122" height="122"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="90.9" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Wik-tA-dsx">
-                                <rect key="frame" x="124" y="170" width="74" height="109"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                <color key="textColor" red="0.87450987100601196" green="0.44705885648727417" blue="0.25882354378700256" alpha="1" colorSpace="deviceRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Radio Lafinur" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DRJ-zv-baI">
                                 <rect key="frame" x="58" y="30" width="207" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -120,8 +109,26 @@
                                 <rect key="frame" x="140" y="122" width="39" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </pageControl>
+                            <view contentMode="scaleToFill" id="V3h-Wc-AIL">
+                                <rect key="frame" x="99" y="384" width="120" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="container_background.png" id="4ha-bf-ies">
+                                        <rect key="frame" x="0.0" y="0.0" width="120" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xSm-X7-qpn">
+                                        <rect key="frame" x="7" y="11" width="107" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" red="0.49411767721176147" green="0.44313728809356689" blue="0.40784317255020142" alpha="1" colorSpace="deviceRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                             <view contentMode="scaleToFill" id="Hte-lq-rLm">
-                                <rect key="frame" x="0.0" y="296" width="320" height="187"/>
+                                <rect key="frame" x="0.0" y="384" width="320" height="187"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="container_background.png" id="ez9-cp-5tA">
@@ -149,8 +156,36 @@
                                             <action selector="volumeValueChangeAction:" destination="vXZ-lx-hvc" eventType="valueChanged" id="Iy5-io-nm0"/>
                                         </connections>
                                     </slider>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rockbox_logo.png" id="V0H-bC-aPc">
+                                        <rect key="frame" x="243" y="161" width="67" height="16"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="sZa-AE-rhv">
+                                <rect key="frame" x="114" y="159" width="89" height="89"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.80000007149999997" green="0.24313727020000001" blue="0.17254902420000001" alpha="1" colorSpace="deviceRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="xDi-1n-Ofr">
+                                <rect key="frame" x="121" y="166" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.86666673421859741" green="0.44705885648727417" blue="0.28235295414924622" alpha="1" colorSpace="deviceRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="pNj-oe-yYc">
+                                <rect key="frame" x="129" y="174" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="90.9" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Wik-tA-dsx">
+                                        <rect key="frame" x="6" y="12" width="49" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <color key="textColor" red="0.87450987100601196" green="0.44705885648727417" blue="0.25882354378700256" alpha="1" colorSpace="deviceRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -158,8 +193,14 @@
                     <navigationItem key="navigationItem" id="wju-8A-2OA"/>
                     <connections>
                         <outlet property="background_image" destination="x48-hU-pod" id="fsN-NY-Fjr"/>
+                        <outlet property="bubble1" destination="pNj-oe-yYc" id="ttd-T9-bMC"/>
+                        <outlet property="bubble2" destination="xDi-1n-Ofr" id="cVU-RC-WEy"/>
+                        <outlet property="bubble3" destination="sZa-AE-rhv" id="rgY-nj-mfC"/>
                         <outlet property="dial_label" destination="Wik-tA-dsx" id="QzY-L3-PQV"/>
+                        <outlet property="loadingLabel" destination="xSm-X7-qpn" id="6P1-rS-IIt"/>
+                        <outlet property="loadingView" destination="V3h-Wc-AIL" id="BrZ-PB-Rkh"/>
                         <outlet property="play_pause_button" destination="2vC-Rs-FnL" id="a51-gx-e0L"/>
+                        <outlet property="playerContainerView" destination="Hte-lq-rLm" id="OAK-FU-IOb"/>
                         <outlet property="radio_slider" destination="iG9-Zm-cWD" id="Dcu-vd-48N"/>
                         <outlet property="title_label" destination="DRJ-zv-baI" id="6XL-aS-nnE"/>
                         <outlet property="tweetPage" destination="xPx-Ph-6W6" id="Agx-pH-jAt"/>
@@ -176,15 +217,32 @@
             <objects>
                 <viewController id="Zi0-h3-MzR" customClass="TweetViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dsZ-hA-7mH">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_background_640_1136.png" id="XxU-2U-e5g">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Twitter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dKS-4X-tqc">
+                                <rect key="frame" x="57" y="30" width="207" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Sz4-fF-UEZ">
+                                <rect key="frame" x="7" y="21" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="arrow.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backAction:" destination="Zi0-h3-MzR" eventType="touchUpInside" id="vyE-B8-oI1"/>
+                                </connections>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="72" sectionHeaderHeight="22" sectionFooterHeight="22" id="oGE-pO-Vc7">
-                                <rect key="frame" x="0.0" y="56" width="320" height="480"/>
+                                <rect key="frame" x="0.0" y="66" width="320" height="502"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.91981572690217395" green="0.91981572690217395" blue="0.91981572690217395" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -242,42 +300,36 @@
                                     <outlet property="delegate" destination="Zi0-h3-MzR" id="VeY-SN-sbW"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dnU-pB-06M">
-                                <rect key="frame" x="4" y="25" width="53" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="&lt; Back">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="tN4-1n-CRy"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="back_button" destination="dnU-pB-06M" id="z1Q-Vc-UYi"/>
+                        <outlet property="back_button" destination="Sz4-fF-UEZ" id="PEJ-CG-jAr"/>
                         <outlet property="background_image" destination="XxU-2U-e5g" id="wnu-zK-wpA"/>
+                        <outlet property="title_label" destination="dKS-4X-tqc" id="iXO-XG-8cM"/>
                         <outlet property="tweetsTable" destination="oGE-pO-Vc7" id="h36-Mt-y6B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fb1-OO-sWk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-266" y="-683"/>
+            <point key="canvasLocation" x="-253" y="-653"/>
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.png" width="40" height="40"/>
         <image name="button_background.png" width="182" height="182"/>
-        <image name="circle_image.png" width="122" height="122"/>
         <image name="container_background.png" width="320" height="187"/>
         <image name="home_background_640_1136.png" width="640" height="1136"/>
         <image name="home_background_640_960.png" width="320" height="480"/>
         <image name="radio_play_button.png" width="79" height="79"/>
+        <image name="rockbox_logo.png" width="94" height="24"/>
         <image name="thunderbird.png" width="100" height="100"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
 </document>

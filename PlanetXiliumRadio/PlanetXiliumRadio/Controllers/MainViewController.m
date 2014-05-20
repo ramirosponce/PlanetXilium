@@ -11,6 +11,7 @@
 #import "FSAudioStream.h"
 #import "FSAudioController.h"
 #import "TweetCollectionViewCell.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface MainViewController ()
 {
@@ -58,11 +59,9 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    [_audioController stop];
-    
-    [[UIApplication sharedApplication] endReceivingRemoteControlEvents];
-    
-    [self resignFirstResponder];
+    //[_audioController stop];
+    //[[UIApplication sharedApplication] endReceivingRemoteControlEvents];
+    //[self resignFirstResponder];
     
     [super viewWillDisappear:animated];
 }
@@ -76,9 +75,11 @@
     title_label.text = NSLocalizedString(@"Planeta Xilium", @"Planeta Xilium");
     dial_label.text = @"90.9";
     radio_state.text = @"";
+    
     [title_label setFont:[UIFont fontWithName:FONT_TYPENOKSIDI size:19.0]];
-    [dial_label setFont:[UIFont fontWithName:FONT_TYPENOKSIDI size:40.0]];
+    [dial_label setFont:[UIFont fontWithName:FONT_TYPENOKSIDI size:25.0]];
     [radio_state setFont:[UIFont fontWithName:FONT_DOSIS_LIGHT size:19.0]];
+    [loadingLabel setFont:[UIFont fontWithName:FONT_LOBSTER size:15.0]];
     
     NSString* image_name = @"";
     if (IS_IPHONE_5)
@@ -93,6 +94,25 @@
     // set min and max value for volume slider
     [radio_slider setMinimumValue:0.0];
     [radio_slider setMaximumValue:1.0];
+    
+    CGRect loadingViewFrame = loadingView.frame;
+    loadingViewFrame.origin.y = playerContainerView.frame.origin.y + 10;
+    loadingView.frame = loadingViewFrame;
+    
+    
+    
+    [bubble1 setClipsToBounds:YES];
+    [bubble1.layer setCornerRadius:(float)bubble1.frame.size.width/2];
+    bubble1.layer.anchorPoint = CGPointMake(0.5, 0.5);
+    
+    [bubble2 setClipsToBounds:YES];
+    [bubble2.layer setCornerRadius:(float)bubble2.frame.size.width/2];
+    bubble2.layer.anchorPoint = CGPointMake(0.5, 0.5);
+    
+    [bubble3 setClipsToBounds:YES];
+    [bubble3.layer setCornerRadius:(float)bubble3.frame.size.width/2];
+    bubble3.layer.anchorPoint = CGPointMake(0.5, 0.5);
+    
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:@"http://www.blackberry-techcenter.com/twitterapi/index.php" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -198,6 +218,36 @@
 }
 
 #pragma mark -
+#pragma mark Animations methods
+
+- (void) radioStateMoveUp
+{
+    CGRect loadingViewFrame = loadingView.frame;
+    loadingViewFrame.origin.y = playerContainerView.frame.origin.y - (loadingViewFrame.size.height - 10);
+    [UIView animateWithDuration:0.2 animations:^{
+        loadingView.frame = loadingViewFrame;
+    }];
+}
+
+- (void) radioStateMoveDown
+{
+    CGRect loadingViewFrame = loadingView.frame;
+    loadingViewFrame.origin.y = playerContainerView.frame.origin.y + 10;
+    [UIView animateWithDuration:0.4 animations:^{
+        loadingView.frame = loadingViewFrame;
+    }];
+}
+
+- (void) anima
+{
+    CGFloat s = 0.5;
+    CGAffineTransform tr = CGAffineTransformScale(bubble3.transform, s, s);
+    [UIView animateWithDuration:2.5 delay:0 options:0 animations:^{
+        bubble3.transform = tr;
+    } completion:^(BOOL finished) {}];
+}
+
+#pragma mark -
 #pragma mark Observers methods
 
 - (void)audioStreamStateDidChange:(NSNotification *)notification
@@ -207,35 +257,40 @@
     
     switch (state) {
         case kFsAudioStreamRetrievingURL:
+            [self radioStateMoveUp];
             [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-            radio_state.text = @"Retrieving URL...";
+            loadingLabel.text = @"Obteniendo URL...";
             //_paused = NO;
             break;
         case kFsAudioStreamStopped:
+            [self radioStateMoveDown];
             [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-            radio_state.text = @"Stream Stopped";
+            loadingLabel.text = @"Detenido";
             //_paused = NO;
             break;
         case kFsAudioStreamBuffering:
             [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-            radio_state.text = @"Buffering...";
+            loadingLabel.text = @"Buffering...";
             //_paused = NO;
             break;
         case kFsAudioStreamSeeking:
             [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-            radio_state.text = @"Seeking...";
+            loadingLabel.text = @"Buscando...";
             //_paused = NO;
             break;
         case kFsAudioStreamPlaying:
+            [self radioStateMoveDown];
             [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-            radio_state.text = @""; //@"Playing...";
+            loadingLabel.text = @""; //@"Playing...";
             //_paused = NO;
             [radio_slider setValue:0.5 animated:YES];
             [_audioController setVolume:0.5];
+            
             break;
         case kFsAudioStreamFailed:
+            [self performSelector:@selector(radioStateMoveDown) withObject:nil afterDelay:0.5];
             [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-            radio_state.text = @"Stream Failed!";
+            loadingLabel.text = @"Error!";
             //_paused = NO;
             break;
     }
