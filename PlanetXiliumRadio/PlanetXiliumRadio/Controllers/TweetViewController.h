@@ -12,5 +12,6 @@
 {
     __weak IBOutlet UITableView* tweetsTable;
     __weak IBOutlet UIImageView* background_image;
+    __weak IBOutlet UIButton* back_button;
 }
 @end

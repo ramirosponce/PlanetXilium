@@ -45,12 +45,12 @@
 {
     [tweetsTable.pullToRefreshView setBorderWidth:0.5];
     [tweetsTable.pullToRefreshView setImageIcon:[UIImage imageNamed:@"xilium_head"]];
-    //[tweetsTable.pullToRefreshView setBorderColor:[UIColor colorWithRed:75/255.0 green:131/255.0 blue:188/255.0 alpha:1.0]];
     [tweetsTable.pullToRefreshView setSize:CGSizeMake(40, 40)];
 }
 - (void) setupInterface
 {
-   // [tweetsTable setBackgroundColor:[UIColor clearColor]];
+    [back_button setUserInteractionEnabled:YES];
+    [back_button addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
     [tweetsTable setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     NSString* image_name = @"";
     if (IS_IPHONE_5)
@@ -66,6 +66,10 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
+}
+-(void)backAction
+{
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 -(void)reloadTweetData
 {

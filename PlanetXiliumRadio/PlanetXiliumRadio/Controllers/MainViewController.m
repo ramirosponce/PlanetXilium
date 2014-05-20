@@ -374,7 +374,7 @@
     return data.count;
 
 }
--(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
   
     [self performSegueWithIdentifier:@"tweetSegue" sender:nil];

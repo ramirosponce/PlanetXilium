@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
-                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="KVy-Jr-CXr"/>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="YE5-xp-Kfz"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Ti-6V-zWh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -242,11 +242,21 @@
                                     <outlet property="delegate" destination="Zi0-h3-MzR" id="VeY-SN-sbW"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dnU-pB-06M">
+                                <rect key="frame" x="4" y="25" width="53" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="&lt; Back">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="tN4-1n-CRy"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="back_button" destination="dnU-pB-06M" id="z1Q-Vc-UYi"/>
                         <outlet property="background_image" destination="XxU-2U-e5g" id="wnu-zK-wpA"/>
                         <outlet property="tweetsTable" destination="oGE-pO-Vc7" id="h36-Mt-y6B"/>
                     </connections>
