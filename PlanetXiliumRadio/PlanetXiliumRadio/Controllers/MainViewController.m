@@ -43,6 +43,10 @@
     [self setupInterface];
 }
 
+- (void) viewWillAppear:(BOOL)animated{
+    //
+}
+
 - (void) viewDidAppear:(BOOL)animated
 {
     [self setupRemoteControl];
@@ -236,15 +240,6 @@
     [UIView animateWithDuration:0.4 animations:^{
         loadingView.frame = loadingViewFrame;
     }];
-}
-
-- (void) anima
-{
-    CGFloat s = 0.5;
-    CGAffineTransform tr = CGAffineTransformScale(bubble3.transform, s, s);
-    [UIView animateWithDuration:2.5 delay:0 options:0 animations:^{
-        bubble3.transform = tr;
-    } completion:^(BOOL finished) {}];
 }
 
 #pragma mark -
