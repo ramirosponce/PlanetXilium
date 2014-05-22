@@ -9,6 +9,8 @@
 #import "TweetViewController.h"
 #import "AFNetworking.h"
 #import "TweetTableViewCell.h"
+#import "TwitterManager.h"
+
 @interface TweetViewController ()
 {
   NSArray* data;
@@ -48,13 +50,18 @@
     [tweetsTable.pullToRefreshView setBorderWidth:0.5];
     [tweetsTable.pullToRefreshView setImageIcon:[UIImage imageNamed:@"xilium_head"]];
     [tweetsTable.pullToRefreshView setSize:CGSizeMake(40, 40)];
+    [tweetsTable setHidden:YES];
+    [loading_image setHidden:NO];
+    [loading_label setHidden:NO];
+    loading_label.text = @"Cargando";
+    [self reloadTweetData];
 }
 
 - (void) setupInterface
 {
     title_label.text = NSLocalizedString(@"Twitter Xilium", @"Twitter Xilium");
     [title_label setFont:[UIFont fontWithName:FONT_TYPENOKSIDI size:19.0]];
-    
+    [loading_label setFont:[UIFont fontWithName:FONT_LOBSTER size:15.0]];
     [tweetsTable setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     NSString* image_name = @"";
     if (IS_IPHONE_5)
@@ -62,14 +69,6 @@
     else
         image_name = @"home_background_640_960.png";
     [background_image setImage:[UIImage imageNamed:image_name]];
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:@"http://www.blackberry-techcenter.com/twitterapi/index.php" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"JSON: %@", responseObject);
-        data=  (NSArray *)responseObject;
-        [tweetsTable reloadData];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-    }];
 }
 
 - (IBAction) backAction:(id)sender
@@ -81,14 +80,16 @@
 -(void)reloadTweetData
 {
     [tweetsTable stopRefreshAnimation];
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:@"http://www.blackberry-techcenter.com/twitterapi/index.php" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"JSON: %@", responseObject);
-        data=  (NSArray *)responseObject;
+    [[TwitterManager sharedManager]getTweetList:@"planetaxilium" count:10 successBlock:^(NSArray *statuses) {
+         data= statuses;
         [tweetsTable reloadData];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-    }];
+        [loading_image setHidden:YES];
+        [loading_label setHidden:YES];
+        [tweetsTable setHidden:NO];
+    } errorBlock:^(NSError *error) {
+         [[[UIAlertView alloc] initWithTitle:nil message:@"Algo salio mal...Prueba de nuevo" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+    } ];
+
 }
 
 
@@ -113,7 +114,6 @@
     }
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     [cell populate:[data objectAtIndex:indexPath.row]];
-    NSLog(@"entre populate");
     return cell;
 }
 
@@ -121,9 +121,6 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CGFloat tempHeight=[self getCommentCellHeight2:[data objectAtIndex:indexPath.row]];
-    if (indexPath.row==0) {
-        NSLog(@"5 COMMENT LINE %.f",tempHeight);
-    }
     if (tempHeight<72.0f) {
         return 72.0f;
     }
@@ -174,6 +171,10 @@
     return commentFrame.origin.y + commentFrame.size.height;
 }
 
+-(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
 /*
 #pragma mark - Navigation
 

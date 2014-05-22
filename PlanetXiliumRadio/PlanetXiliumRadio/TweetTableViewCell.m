@@ -38,7 +38,6 @@
     tweet_name.text = [[data objectForKey:@"user"]objectForKey:@"name"];
     tweet_screen_name.text =  [NSString stringWithFormat:@"@%@",[[data objectForKey:@"user"]objectForKey:@"screen_name"]];
     NSURL *imageURL =  [NSURL URLWithString: [[data objectForKey:@"user"]objectForKey:@"profile_image_url"]];
-    NSLog(@"imageURL %@",imageURL);
     [tweet_image setImageWithURL:imageURL placeholderImage:[UIImage imageNamed:@"empty_avatar"] options:SDWebImageCacheMemoryOnly];
     [tweet_image setClipsToBounds:YES];
     [tweet_image.layer setCornerRadius:10.0f];

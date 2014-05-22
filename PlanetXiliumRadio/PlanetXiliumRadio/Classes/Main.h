@@ -21,6 +21,8 @@
 #define FONT_SEMIBOLD           @"Dosis-SemiBold"
 #define FONT_TYPENOKSIDI        @"Typenoksidi"
 #define FONT_LOBSTER            @"Lobster"
+#define TWITTER_CONSUMER_KEY    @"hkc9nWvAAOVeOQwoIdUcOAdb1"
+#define TWITTER_CONSUMER_SECRET @"SrCvXMyzgymCamtics966xj2AAUurGZs4YuIqhzQJ0G1YYpaMm"
 
 
 #define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)

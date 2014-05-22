@@ -30,10 +30,6 @@
     __weak IBOutlet UIView* loadingView;
     __weak IBOutlet UILabel* loadingLabel;
     
-    __weak IBOutlet UIView* bubble1;
-    __weak IBOutlet UIView* bubble2;
-    __weak IBOutlet UIView* bubble3;
-    
     // State
     BOOL _shouldStartPlaying;
     

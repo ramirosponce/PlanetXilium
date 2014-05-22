@@ -8,12 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TweetViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
+@interface TweetViewController : UIViewController <UITableViewDataSource,UITableViewDelegate, UIAlertViewDelegate>
 {
     __weak IBOutlet UITableView* tweetsTable;
     __weak IBOutlet UIImageView* background_image;
     __weak IBOutlet UIButton* back_button;
     __weak IBOutlet UILabel* title_label;
+    __weak IBOutlet UILabel* loading_label;
+    __weak IBOutlet UIImageView* loading_image;
 }
 
 - (IBAction) backAction:(id)sender;

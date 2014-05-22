@@ -11,6 +11,7 @@
 #import "FSAudioStream.h"
 #import "FSAudioController.h"
 #import "TweetCollectionViewCell.h"
+#import "TwitterManager.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface MainViewController ()
@@ -44,14 +45,14 @@
 }
 
 - (void) viewWillAppear:(BOOL)animated{
-    //
+
 }
 
 - (void) viewDidAppear:(BOOL)animated
 {
     [self setupRemoteControl];
     [self setupNotifications];
-    
+    [self loadXiliumTweets];
     //[self performSelector:@selector(radioStart) withObject:nil afterDelay:3.0];
 }
 
@@ -102,26 +103,13 @@
     CGRect loadingViewFrame = loadingView.frame;
     loadingViewFrame.origin.y = playerContainerView.frame.origin.y + 10;
     loadingView.frame = loadingViewFrame;
-    
-    
-    
-    [bubble1 setClipsToBounds:YES];
-    [bubble1.layer setCornerRadius:(float)bubble1.frame.size.width/2];
-    bubble1.layer.anchorPoint = CGPointMake(0.5, 0.5);
-    
-    [bubble2 setClipsToBounds:YES];
-    [bubble2.layer setCornerRadius:(float)bubble2.frame.size.width/2];
-    bubble2.layer.anchorPoint = CGPointMake(0.5, 0.5);
-    
-    [bubble3 setClipsToBounds:YES];
-    [bubble3.layer setCornerRadius:(float)bubble3.frame.size.width/2];
-    bubble3.layer.anchorPoint = CGPointMake(0.5, 0.5);
-    
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:@"http://www.blackberry-techcenter.com/twitterapi/index.php" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-         NSLog(@"JSON: %@", responseObject);
-        data=  (NSArray *)responseObject;
+
+}
+-(void) loadXiliumTweets
+{
+     selected_index=0;
+    [[TwitterManager sharedManager]getTweetList:@"planetaxilium" count:10 successBlock:^(NSArray *statuses) {
+        data=  statuses;
         [tweetView reloadData];
         [tweetPage setNumberOfPages:data.count];
         tweetTimer =[NSTimer scheduledTimerWithTimeInterval:10.0
@@ -129,22 +117,23 @@
                                                    selector:@selector(playCarrousel)
                                                    userInfo:nil
                                                     repeats:YES];
-       [self performSelector:@selector(updateData) withObject: nil afterDelay:300.0];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self performSelector:@selector(updateData) withObject: nil afterDelay:300.0];
+        
+    } errorBlock:^(NSError *error) {
         NSLog(@"Error: %@", error);
-    }];
-   
+    } ];
 }
+
 -(void) updateData
 {
     NSLog(@"reloading DATA");
     [tweetTimer invalidate];
     tweetTimer = nil;
     selected_index=0;
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:@"http://www.blackberry-techcenter.com/twitterapi/index.php" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"JSON: %@", responseObject);
-        data=  (NSArray *)responseObject;
+    
+    [[TwitterManager sharedManager]getTweetList:@"planetaxilium" count:10 successBlock:^(NSArray *statuses) {
+        
+        data= statuses;
         [tweetView reloadData];
         [tweetPage setNumberOfPages:data.count];
         
@@ -158,9 +147,10 @@
                                                    userInfo:nil
                                                     repeats:YES];
         [self performSelector:@selector(updateData) withObject: nil afterDelay:300.0];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+    } errorBlock:^(NSError *error) {
         NSLog(@"Error: %@", error);
-    }];
+    } ];
 }
 -(void) playCarrousel
 {
@@ -255,6 +245,7 @@
             [self radioStateMoveUp];
             [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
             loadingLabel.text = @"Obteniendo URL...";
+            [play_pause_button setUserInteractionEnabled:NO];
             //_paused = NO;
             break;
         case kFsAudioStreamStopped:
@@ -279,6 +270,7 @@
             loadingLabel.text = @""; //@"Playing...";
             //_paused = NO;
             [radio_slider setValue:0.5 animated:YES];
+            [play_pause_button setUserInteractionEnabled:YES];
             [_audioController setVolume:0.5];
             
             break;
@@ -286,6 +278,7 @@
             [self performSelector:@selector(radioStateMoveDown) withObject:nil afterDelay:0.5];
             [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
             loadingLabel.text = @"Error!";
+            [play_pause_button setUserInteractionEnabled:YES];
             //_paused = NO;
             break;
     }
