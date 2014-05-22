@@ -213,6 +213,13 @@
                                     <action selector="backAction:" destination="Zi0-h3-MzR" eventType="touchUpInside" id="vyE-B8-oI1"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="mzg-q9-f1g">
+                                <rect key="frame" x="250" y="26" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="tweet">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xilium_head.png" id="a1P-4f-Hnx">
                                 <rect key="frame" x="124" y="250" width="72" height="69"/>
                                 <autoresizingMask key="autoresizingMask"/>
@@ -291,6 +298,7 @@
                     <connections>
                         <outlet property="back_button" destination="Sz4-fF-UEZ" id="PEJ-CG-jAr"/>
                         <outlet property="background_image" destination="XxU-2U-e5g" id="wnu-zK-wpA"/>
+                        <outlet property="compose_button" destination="mzg-q9-f1g" id="jrZ-fj-BbV"/>
                         <outlet property="loading_image" destination="a1P-4f-Hnx" id="TCr-9L-9U1"/>
                         <outlet property="loading_label" destination="PBP-aj-QDZ" id="pEh-uK-I4x"/>
                         <outlet property="title_label" destination="dKS-4X-tqc" id="iXO-XG-8cM"/>

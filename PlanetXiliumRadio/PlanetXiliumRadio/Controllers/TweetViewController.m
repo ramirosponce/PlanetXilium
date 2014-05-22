@@ -10,6 +10,8 @@
 #import "AFNetworking.h"
 #import "TweetTableViewCell.h"
 #import "TwitterManager.h"
+#import <Social/Social.h>
+#import <Twitter/TWTweetComposeViewController.h>
 
 @interface TweetViewController ()
 {
@@ -57,8 +59,16 @@
     [self reloadTweetData];
 }
 
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+#pragma mark - Private Methods
+
 - (void) setupInterface
 {
+    [compose_button addTarget:self action:@selector(pushComposer) forControlEvents:UIControlEventTouchUpInside];
     title_label.text = NSLocalizedString(@"Twitter Xilium", @"Twitter Xilium");
     [title_label setFont:[UIFont fontWithName:FONT_TYPENOKSIDI size:19.0]];
     [loading_label setFont:[UIFont fontWithName:FONT_LOBSTER size:15.0]];
@@ -76,30 +86,37 @@
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
+-(void)pushComposer
+{
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
+    {
+        SLComposeViewController *tweetSheet = [SLComposeViewController
+                                               composeViewControllerForServiceType:SLServiceTypeTwitter];
+        [tweetSheet setInitialText:@"@turco082 "];
+        [self presentViewController:tweetSheet animated:YES completion:nil];
+    }
+    else
+    {
+        [[[UIAlertView alloc] initWithTitle:nil message:@"No Hay servicio de Twitter disponible" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+    }
 
+}
 -(void)reloadTweetData
 {
     [tweetsTable stopRefreshAnimation];
     [[TwitterManager sharedManager]getTweetList:@"planetaxilium" count:10 successBlock:^(NSArray *statuses) {
-         data= statuses;
+        data= statuses;
         [tweetsTable reloadData];
         [loading_image setHidden:YES];
         [loading_label setHidden:YES];
         [tweetsTable setHidden:NO];
     } errorBlock:^(NSError *error) {
-         [[[UIAlertView alloc] initWithTitle:nil message:@"Algo salio mal...Prueba de nuevo" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+        [[[UIAlertView alloc] initWithTitle:nil message:@"Algo salio mal...Prueba de nuevo" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
     } ];
-
+    
 }
 
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
+#pragma mark - Table delegates
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return data.count;
 }
@@ -170,7 +187,7 @@
     commentFrame = commentFrame_aux;
     return commentFrame.origin.y + commentFrame.size.height;
 }
-
+#pragma mark-back button action
 -(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     [self.navigationController popToRootViewControllerAnimated:YES];

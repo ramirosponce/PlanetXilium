@@ -16,6 +16,7 @@
     __weak IBOutlet UILabel* title_label;
     __weak IBOutlet UILabel* loading_label;
     __weak IBOutlet UIImageView* loading_image;
+    __weak IBOutlet UIButton* compose_button;
 }
 
 - (IBAction) backAction:(id)sender;

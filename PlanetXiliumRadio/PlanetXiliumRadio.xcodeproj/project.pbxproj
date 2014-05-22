@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		014167A5192E9DFE0018631E /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 014167A4192E9DFE0018631E /* Twitter.framework */; };
+		014167A7192E9E140018631E /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 014167A6192E9E140018631E /* Accounts.framework */; };
 		0151E8281923F30400654374 /* button_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 0151E81B1923F30400654374 /* button_background.png */; };
 		0151E8291923F30400654374 /* button_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0151E81C1923F30400654374 /* button_background@2x.png */; };
 		0151E82A1923F30400654374 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0151E81D1923F30400654374 /* Default-568h@2x.png */; };
@@ -150,6 +152,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		014167A4192E9DFE0018631E /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		014167A6192E9E140018631E /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		0151E81B1923F30400654374 /* button_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_background.png; sourceTree = "<group>"; };
 		0151E81C1923F30400654374 /* button_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_background@2x.png"; sourceTree = "<group>"; };
 		0151E81D1923F30400654374 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -355,6 +359,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				014167A7192E9E140018631E /* Accounts.framework in Frameworks */,
+				014167A5192E9DFE0018631E /* Twitter.framework in Frameworks */,
 				C6A2512A19135CC300A2DA8F /* MediaPlayer.framework in Frameworks */,
 				C6A2512819135CB400A2DA8F /* libxml2.dylib in Frameworks */,
 				C6A2512619135CA900A2DA8F /* AVFoundation.framework in Frameworks */,
@@ -568,6 +574,8 @@
 		C6A250EB19135C6100A2DA8F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				014167A6192E9E140018631E /* Accounts.framework */,
+				014167A4192E9DFE0018631E /* Twitter.framework */,
 				C6A2512919135CC300A2DA8F /* MediaPlayer.framework */,
 				C6A2512519135CA900A2DA8F /* AVFoundation.framework */,
 				C6A2512319135CA100A2DA8F /* AudioToolbox.framework */,
