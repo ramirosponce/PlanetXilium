@@ -104,8 +104,12 @@
 -(void)reloadTweetData
 {
     [tweetsTable stopRefreshAnimation];
-    [[TwitterManager sharedManager]getTweetList:@"planetaxilium" count:10 successBlock:^(NSArray *statuses) {
+    [[TwitterManager sharedManager]getTweetList:@"LaRedInnova" count:10 successBlock:^(NSArray *statuses) {
         data= statuses;
+        NSData *jsonData2 = [NSJSONSerialization dataWithJSONObject:statuses options:NSJSONWritingPrettyPrinted error:nil];
+        NSString *jsonString = [[NSString alloc] initWithData:jsonData2 encoding:NSUTF8StringEncoding];
+        NSLog(@"jsonData as string:\n%@", jsonString);
+     //   NSLog(@"DATAAA =%@",data);
         [tweetsTable reloadData];
         [loading_image setHidden:YES];
         [loading_label setHidden:YES];
@@ -148,6 +152,7 @@
 {
     CGRect titleFrame = CGRectMake(55.0, 8.0, 245.0, 21.0);
     CGRect commentFrame = CGRectMake(55.0, 27.0, 245.0, 21.0);
+    CGRect imageFrame = CGRectMake(55.0, 27.0, 245.0, 21.0);
     UIFont* titleFont = [UIFont boldSystemFontOfSize:16.0];
     NSDictionary *stringAttributes = [NSDictionary dictionaryWithObject:titleFont forKey: NSFontAttributeName];
     
@@ -185,7 +190,22 @@
     commentFrame_aux.origin.y = titleFrame.origin.y + titleFrame.size.height;
     commentFrame_aux.size.height = commentNewHeight;
     commentFrame = commentFrame_aux;
-    return commentFrame.origin.y + commentFrame.size.height;
+    
+    NSArray *mediaData=[[userData objectForKey:@"entities"]objectForKey:@"media"];
+    if (mediaData.count>0) {
+        NSDictionary *dataDic= [mediaData objectAtIndex:0];
+        NSDictionary *mediaSize = [[dataDic objectForKey:@"sizes"] objectForKey:@"small"];
+        CGFloat mediaHeight= [[mediaSize objectForKey:@"h"]floatValue];
+        CGFloat mediaWidht= [[mediaSize objectForKey:@"w"]floatValue];
+        //obtain center point
+        CGFloat resul = 320-mediaWidht/2;
+        CGRect imageFaame_aux= CGRectMake(resul,( commentFrame.origin.y + commentFrame.size.height+5), mediaWidht/2, mediaHeight/2);
+        imageFrame = imageFaame_aux;
+         return imageFrame.origin.y + imageFrame.size.height;
+        
+    }else
+      return commentFrame.origin.y + commentFrame.size.height;
+    
 }
 #pragma mark-back button action
 -(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex

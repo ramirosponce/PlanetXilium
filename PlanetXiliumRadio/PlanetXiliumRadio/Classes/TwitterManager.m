@@ -58,7 +58,7 @@ static TwitterManager * sharedInstance = nil;
          errorBlock:(void(^)(NSError *error))errorBlock{
     
     [twitter verifyCredentialsWithSuccessBlock:^(NSString *bearerToken) {
-        [twitter getUserTimelineWithScreenName:@"planetaxilium" count:count successBlock:successBlock errorBlock:errorBlock];
+        [twitter getUserTimelineWithScreenName:screenName count:count successBlock:successBlock errorBlock:errorBlock];
         
     } errorBlock:errorBlock];
 }

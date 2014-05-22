@@ -42,6 +42,21 @@
     [tweet_image setClipsToBounds:YES];
     [tweet_image.layer setCornerRadius:10.0f];
     [tweet_image.layer setBorderColor:[UIColorFromRGB(000000) CGColor]];
+    
+    NSArray *mediaData=[[data objectForKey:@"entities"]objectForKey:@"media"];
+    if (mediaData) {
+        NSDictionary *dataDic= [mediaData objectAtIndex:0];
+        NSURL *mediaURL =  [NSURL URLWithString: [dataDic objectForKey:@"media_url"]];
+        NSDictionary *mediaSize = [[dataDic objectForKey:@"sizes"] objectForKey:@"small"];
+        CGFloat mediaHeight= [[mediaSize objectForKey:@"h"]floatValue];
+        CGFloat mediaWidht= [[mediaSize objectForKey:@"w"]floatValue];
+        [tweet_media setImageWithURL:mediaURL placeholderImage:[UIImage imageNamed:@"empty_avatar"] options:SDWebImageCacheMemoryOnly];
+        CGRect imageSize= CGRectMake(0 , 0, mediaWidht/2, mediaHeight/2);
+          NSLog(@"tengoDATAAAAA %f",mediaHeight);
+              NSLog(@"tengoDATAAAAAmediaWidht %f",mediaWidht);
+        tweet_media.frame=imageSize;
+    }else
+        tweet_media =nil;
     [self makeDynamic];
 }
 
@@ -85,9 +100,14 @@
     commentNewHeight += 10;
     
     CGRect commentFrame = tweet_text.frame;
-    commentFrame.origin.y = tweet_name.frame.origin.y + tweet_name.frame.size.height - 5;
+    commentFrame.origin.y = tweet_name.frame.origin.y + tweet_name.frame.size.height-8;// - 5;
     commentFrame.size.height = commentNewHeight;
     tweet_text.frame = commentFrame;
+    if(tweet_media){
+        CGRect imageFrame = tweet_media.frame;
+        imageFrame.origin.y = tweet_text.frame.origin.y + tweet_text.frame.size.height+10;
+        tweet_media.frame = imageFrame;
+    }
 }
 
 @end
