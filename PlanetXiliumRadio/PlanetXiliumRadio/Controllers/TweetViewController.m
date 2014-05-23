@@ -10,14 +10,16 @@
 #import "AFNetworking.h"
 #import "TweetTableViewCell.h"
 #import "TwitterManager.h"
+#import "TweetWebViewController.h"
 #import <Social/Social.h>
 #import <Twitter/TWTweetComposeViewController.h>
 
 @interface TweetViewController ()
 {
-  NSArray* data;
+  NSMutableArray* data;
 }
 @property (nonatomic,strong) UzysRadialProgressActivityIndicator *radialIndicator;
+@property (assign, nonatomic) CATransform3D initialTransformation;
 @end
 
 @implementation TweetViewController
@@ -35,6 +37,19 @@
 {
     [super viewDidLoad];
     [self setupInterface];
+    //Set the Intial angle
+    CGFloat rotationAngleDegrees = 60;
+    // Caculate the radian from the intial
+    CGFloat rotationAngleRadians = rotationAngleDegrees * (M_PI/180);
+    //Set the Intial (x,y) position to start the animation from
+    CGPoint offsetPositioning = CGPointMake(20, 20);
+    //Define the Identity Matrix
+    CATransform3D transform = CATransform3DIdentity;
+    //Rotate the cell in the anti-clockwise directon to see the animation along the x- axis
+    transform = CATransform3DRotate(transform, rotationAngleRadians, 0.0, 1.0, 0.0);
+    //Add the translation effect to give shifting cell animation
+    transform = CATransform3DTranslate(transform, offsetPositioning.x, offsetPositioning.y, 0.0);
+    _initialTransformation = transform;
     // Do any additional setup after loading the view.
 }
 
@@ -68,6 +83,7 @@
 
 - (void) setupInterface
 {
+    data = [[NSMutableArray alloc] initWithCapacity:0];
     [compose_button addTarget:self action:@selector(pushComposer) forControlEvents:UIControlEventTouchUpInside];
     title_label.text = NSLocalizedString(@"Twitter Xilium", @"Twitter Xilium");
     [title_label setFont:[UIFont fontWithName:FONT_TYPENOKSIDI size:19.0]];
@@ -104,15 +120,21 @@
     }
 
 }
+
 -(void)reloadTweetData
 {
     [tweetsTable stopRefreshAnimation];
-    [[TwitterManager sharedManager]getTweetList:@"planetaxilium" count:20 successBlock:^(NSArray *statuses) {
-        data= statuses;
-        NSData *jsonData2 = [NSJSONSerialization dataWithJSONObject:statuses options:NSJSONWritingPrettyPrinted error:nil];
-        NSString *jsonString = [[NSString alloc] initWithData:jsonData2 encoding:NSUTF8StringEncoding];
-        NSLog(@"jsonData as string:\n%@", jsonString);
-     //   NSLog(@"DATAAA =%@",data);
+    [[TwitterManager sharedManager]getTweetList:@"turco082" count:20 successBlock:^(NSArray *statuses) {
+//        NSData *jsonData2 = [NSJSONSerialization dataWithJSONObject:statuses options:NSJSONWritingPrettyPrinted error:nil];
+//        NSString *jsonString = [[NSString alloc] initWithData:jsonData2 encoding:NSUTF8StringEncoding];
+//        NSLog(@"jsonData as string:\n%@", jsonString);
+
+        data= nil;
+        data = [[NSMutableArray alloc] initWithCapacity:0];
+        for (NSDictionary *itemData in statuses) {
+            Tweet *dataTweet = [[Tweet alloc]initWithData:itemData];
+            [data addObject:dataTweet];
+        }
         [tweetsTable reloadData];
         [loading_image setHidden:YES];
         [loading_label setHidden:YES];
@@ -128,31 +150,17 @@
 
 //This function is where all the magic happens
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    UIView *card = (UITableViewCell * )cell ;
+    card.layer.transform = self.initialTransformation;
+    //Set the cell to light Transparent
+    card.layer.opacity = 0.8;
     
-    
-    //1. Setup the CATransform3D structure
-    CATransform3D rotation;
-    rotation = CATransform3DMakeRotation( (90.0*M_PI)/180, 0.0, 0.7, 0.4);
-    rotation.m34 = 1.0/ -600;
-    
-    
-    //2. Define the initial state (Before the animation)
-    cell.layer.shadowColor = [[UIColor blackColor]CGColor];
-    cell.layer.shadowOffset = CGSizeMake(10, 10);
-    cell.alpha = 0;
-    
-    cell.layer.transform = rotation;
-    cell.layer.anchorPoint = CGPointMake(0, 0.5);
-    
-    
-    //3. Define the final state (After the animation) and commit the animation
-    [UIView beginAnimations:@"rotation" context:NULL];
-    [UIView setAnimationDuration:0.8];
-    cell.layer.transform = CATransform3DIdentity;
-    cell.alpha = 1;
-    cell.layer.shadowOffset = CGSizeMake(0, 0);
-    [UIView commitAnimations];
-    
+    [UIView animateWithDuration:0.5 animations:^{
+        card.layer.transform = CATransform3DIdentity;
+        //Make it to original color
+        card.layer.opacity = 1;
+    }];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -175,7 +183,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CGFloat tempHeight = [self getCommentCellHeight2:[data objectAtIndex:indexPath.row]];
+    CGFloat tempHeight = [self getCommentCellHeight:(Tweet*)[data objectAtIndex:indexPath.row]];
     if (tempHeight < 72.0f) {
         return 72.0f;
     }
@@ -183,7 +191,25 @@
         return tempHeight;
 }
 
-- (CGFloat)getCommentCellHeight2:(NSDictionary *)userData
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+   
+    Tweet *selectedTweet=[data objectAtIndex:indexPath.row];
+    if(selectedTweet.link_url)
+    {
+        [self performSegueWithIdentifier:@"tweetWebSegue" sender:selectedTweet.link_url];
+    }
+   
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+
+    if([segue.identifier isEqualToString:@"tweetWebSegue"]){
+        TweetWebViewController *vc= (TweetWebViewController*)[segue destinationViewController];
+        vc.link = (NSURL*)sender;
+    }
+}
+- (CGFloat)getCommentCellHeight:(Tweet *)userData
 {
     CGRect titleFrame = CGRectMake(55.0, 8.0, 245.0, 21.0);
     CGRect commentFrame = CGRectMake(55.0, 27.0, 245.0, 21.0);
@@ -199,7 +225,7 @@
     CGFloat titleNewHeight;
     CGSize titleConstraintSize = CGSizeMake(245.0f, 999.0f);
     
-    NSString* cell_title = [NSString stringWithFormat:@"%@ %@:",[[userData objectForKey:@"user"]objectForKey:@"name"], NSLocalizedString(@"dijo", @"dijo")];
+    NSString* cell_title = [NSString stringWithFormat:@"%@ %@:",userData.name, NSLocalizedString(@"dijo", @"dijo")];
     
     titleExpectedLabelSize = [cell_title boundingRectWithSize:titleConstraintSize
                                                       options:NSStringDrawingTruncatesLastVisibleLine|NSStringDrawingUsesLineFragmentOrigin
@@ -218,7 +244,7 @@
     CGSize commentExpectedLabelSize;
     CGFloat commentNewHeight;
     CGSize commentConstraintSize = CGSizeMake(245.0f, 999.0);
-    commentExpectedLabelSize = [[userData objectForKey:@"text"] boundingRectWithSize:commentConstraintSize
+    commentExpectedLabelSize = [userData.text boundingRectWithSize:commentConstraintSize
                                                           options:NSStringDrawingTruncatesLastVisibleLine|NSStringDrawingUsesLineFragmentOrigin
                                                        attributes:stringAttributes context:nil].size;
     commentNewHeight = commentExpectedLabelSize.height;
@@ -229,8 +255,7 @@
     commentFrame_aux.size.height = commentNewHeight;
     commentFrame = commentFrame_aux;
     
-    NSArray *mediaData=[[userData objectForKey:@"entities"]objectForKey:@"media"];
-    if (mediaData.count > 0) {
+    if (userData.media_image_url) {
         CGRect imageFrame_aux = imageFrame;
         imageFrame_aux.origin.y = commentFrame.origin.y + commentFrame.size.height + 10;
         imageFrame = imageFrame_aux;

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Tweet.h"
 
 @interface TweetTableViewCell : UITableViewCell
 {
@@ -18,5 +19,5 @@
     
     __weak IBOutlet UIView* background_tweet;
 }
--(void) populate: (NSDictionary*)data;
+-(void) populate: (Tweet*)tweet;
 @end

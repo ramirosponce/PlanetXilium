@@ -32,15 +32,14 @@
     // Configure the view for the selected state
 }
 
--(void) populate:(NSDictionary *)data
+-(void) populate:(Tweet *)tweet
 {
     [self setBackgroundColor:[UIColor clearColor]];
     
-    tweet_text.text = [data objectForKey:@"text"];
-    tweet_name.text = [[data objectForKey:@"user"]objectForKey:@"name"];
-    tweet_screen_name.text =  [NSString stringWithFormat:@"@%@",[[data objectForKey:@"user"]objectForKey:@"screen_name"]];
-    NSURL *imageURL =  [NSURL URLWithString: [[data objectForKey:@"user"]objectForKey:@"profile_image_url"]];
-    [tweet_image setImageWithURL:imageURL placeholderImage:[UIImage imageNamed:@"empty_avatar"] options:SDWebImageCacheMemoryOnly];
+    tweet_text.text = tweet.text;
+    tweet_name.text = tweet.name;
+    tweet_screen_name.text = tweet.screen_name;
+    [tweet_image setImageWithURL:tweet.profile_image_url placeholderImage:[UIImage imageNamed:@"empty_avatar"] options:SDWebImageCacheMemoryOnly];
     [tweet_image setClipsToBounds:YES];
     //[tweet_image.layer setCornerRadius:10.0f];
     [tweet_image.layer setCornerRadius:tweet_image.frame.size.width/2];
@@ -53,20 +52,8 @@
     [background_tweet setClipsToBounds:YES];
     [background_tweet.layer setCornerRadius:3.0f];
     //[background_tweet.layer setBorderColor:[UIColorFromRGB(000000) CGColor]];
-    
-    NSArray *mediaData=[[data objectForKey:@"entities"]objectForKey:@"media"];
-    if (mediaData) {
-        NSDictionary *dataDic= [mediaData objectAtIndex:0];
-        NSURL *mediaURL =  [NSURL URLWithString: [dataDic objectForKey:@"media_url"]];
-        //NSDictionary *mediaSize = [[dataDic objectForKey:@"sizes"] objectForKey:@"small"];
-        //CGFloat mediaHeight= [[mediaSize objectForKey:@"h"]floatValue];
-        //CGFloat mediaWidht= [[mediaSize objectForKey:@"w"]floatValue];
-        [tweet_media setImageWithURL:mediaURL placeholderImage:nil options:SDWebImageCacheMemoryOnly];
-        
-        //CGRect imageSize = CGRectMake(tweet_media.frame.origin.x , tweet_media.frame.origin.y, mediaWidht, mediaHeight/2);
-        //NSLog(@"tengoDATAAAAA %f",mediaHeight);
-        //NSLog(@"tengoDATAAAAAmediaWidht %f",mediaWidht);
-        //tweet_media.frame = imageSize;
+    if (tweet.media_image_url) {
+        [tweet_media setImageWithURL:tweet.media_image_url placeholderImage:nil options:SDWebImageCacheMemoryOnly];
     }else
         tweet_media.image = nil;
     

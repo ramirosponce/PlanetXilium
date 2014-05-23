@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "Tweet.h"
 @interface TweetViewController : UIViewController <UITableViewDataSource,UITableViewDelegate, UIAlertViewDelegate>
 {
     __weak IBOutlet UITableView* tweetsTable;

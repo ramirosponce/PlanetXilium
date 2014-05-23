@@ -22,7 +22,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Ti-6V-zWh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1314" y="-653"/>
+            <point key="canvasLocation" x="-1422" y="-673"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="ufC-wZ-h7g">
@@ -32,9 +32,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_background_640_960.png" id="x48-hU-pod">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Default" id="x48-hU-pod">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Radio Lafinur" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DRJ-zv-baI">
                                 <rect key="frame" x="58" y="30" width="207" height="21"/>
@@ -182,7 +182,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-797" y="-653"/>
+            <point key="canvasLocation" x="-965" y="-673"/>
         </scene>
         <!--Tweet View Controller-->
         <scene sceneID="AqQ-Ov-43H">
@@ -192,9 +192,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="twitter_background_640_1136.png" id="XxU-2U-e5g">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="twitter_background_640_960.png" id="XxU-2U-e5g">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Twitter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dKS-4X-tqc">
                                 <rect key="frame" x="57" y="30" width="207" height="21"/>
@@ -232,8 +232,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="270" sectionHeaderHeight="22" sectionFooterHeight="22" id="oGE-pO-Vc7">
-                                <rect key="frame" x="0.0" y="66" width="320" height="502"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <rect key="frame" x="0.0" y="68" width="320" height="500"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -309,23 +309,118 @@
                         <outlet property="loading_label" destination="PBP-aj-QDZ" id="pEh-uK-I4x"/>
                         <outlet property="title_label" destination="dKS-4X-tqc" id="iXO-XG-8cM"/>
                         <outlet property="tweetsTable" destination="oGE-pO-Vc7" id="h36-Mt-y6B"/>
+                        <segue destination="RDQ-kn-Alm" kind="push" identifier="tweetWebSegue" id="DCt-Ds-XWq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fb1-OO-sWk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-253" y="-653"/>
+            <point key="canvasLocation" x="-413" y="-673"/>
+        </scene>
+        <!--Tweet Web View Controller-->
+        <scene sceneID="xk3-xH-dQT">
+            <objects>
+                <viewController id="RDQ-kn-Alm" customClass="TweetWebViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PjP-TK-Drh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="twitter_background_640_960.png" id="jk3-JI-eCO">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7U3-eL-dyp">
+                                <rect key="frame" x="7" y="21" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="arrow.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backAction:" destination="RDQ-kn-Alm" eventType="touchUpInside" id="xPr-lk-m82"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cargando" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xWm-nn-EZK">
+                                <rect key="frame" x="93" y="303" width="135" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.49411767719999999" green="0.44313728810000003" blue="0.40784317260000003" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xilium_head.png" id="KXc-4Z-drC">
+                                <rect key="frame" x="124" y="235" width="72" height="69"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <webView hidden="YES" contentMode="scaleToFill" id="KLE-Nd-nAV">
+                                <rect key="frame" x="0.0" y="66" width="320" height="503"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="RDQ-kn-Alm" id="jdI-ym-4zu"/>
+                                </connections>
+                            </webView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="BGD-od-LUb">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem systemItem="rewind" id="YSf-Ol-sxb">
+                                        <connections>
+                                            <action selector="goBack" destination="KLE-Nd-nAV" id="XaL-88-Vhw"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="66" style="plain" systemItem="fixedSpace" id="DJd-wt-xZM"/>
+                                    <barButtonItem systemItem="refresh" id="vHk-oA-ch0">
+                                        <connections>
+                                            <action selector="reload" destination="KLE-Nd-nAV" id="h9x-vj-R1r"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="40" style="plain" systemItem="fixedSpace" id="cI4-TU-sI8"/>
+                                    <barButtonItem systemItem="stop" id="DZe-sT-Zaf">
+                                        <connections>
+                                            <action selector="stopLoading" destination="KLE-Nd-nAV" id="oKT-k2-QNh"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="66" style="plain" systemItem="fixedSpace" id="5t6-ws-Cvh"/>
+                                    <barButtonItem systemItem="fastForward" id="ZgU-Kh-K6u">
+                                        <connections>
+                                            <action selector="goForward" destination="KLE-Nd-nAV" id="TPO-zv-nH3"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Web" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1kr-NF-0xS">
+                                <rect key="frame" x="56" y="30" width="207" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="82D-UH-sgG"/>
+                    <connections>
+                        <outlet property="backButton" destination="7U3-eL-dyp" id="Ac0-yf-cfn"/>
+                        <outlet property="title_label" destination="1kr-NF-0xS" id="6jx-Eo-SeV"/>
+                        <outlet property="tweetWeb" destination="KLE-Nd-nAV" id="xks-zj-CTA"/>
+                        <outlet property="xiliumImage" destination="KXc-4Z-drC" id="bQO-VD-QYs"/>
+                        <outlet property="xiliumText" destination="xWm-nn-EZK" id="2MU-sf-rLM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1ch-wh-PSk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="23" y="-673"/>
         </scene>
     </scenes>
     <resources>
+        <image name="Default" width="320" height="480"/>
         <image name="arrow.png" width="40" height="40"/>
         <image name="button_background.png" width="182" height="182"/>
         <image name="container_background.png" width="320" height="187"/>
-        <image name="home_background_640_960.png" width="320" height="480"/>
         <image name="new_tweet_icon.png" width="23" height="23"/>
         <image name="radio_play_button.png" width="79" height="79"/>
         <image name="rockbox_logo.png" width="94" height="24"/>
         <image name="thunderbird.png" width="100" height="100"/>
-        <image name="twitter_background_640_1136.png" width="640" height="1136"/>
+        <image name="twitter_background_640_960.png" width="320" height="480"/>
         <image name="xilium_head.png" width="115" height="85"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

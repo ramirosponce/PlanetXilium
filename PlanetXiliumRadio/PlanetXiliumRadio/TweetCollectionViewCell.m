@@ -19,14 +19,13 @@
     }
     return self;
 }
--(void) populate:(NSDictionary *)data
+-(void) populate:(Tweet *)tweet
 {
     [self setBackgroundColor:[UIColor clearColor]];
-    tweetText.text = [data objectForKey:@"text"];
-    tweetName.text = [[data objectForKey:@"user"]objectForKey:@"name"];
-    tweetScreenName.text =  [NSString stringWithFormat:@"@%@",[[data objectForKey:@"user"]objectForKey:@"screen_name"]];
-    NSURL *imageURL =  [NSURL URLWithString: [[data objectForKey:@"user"]objectForKey:@"profile_image_url"]];
-    [tweetImage setImageWithURL:imageURL placeholderImage:nil options:SDWebImageCacheMemoryOnly];
+    tweetText.text = tweet.text;
+    tweetName.text = tweet.name;
+    tweetScreenName.text =  tweet.screen_name;
+    [tweetImage setImageWithURL:tweet.profile_image_url placeholderImage:nil options:SDWebImageCacheMemoryOnly];
     [tweetImage setClipsToBounds:YES];
     [tweetImage.layer setCornerRadius:tweetImage.frame.size.width/2];
     [tweetImage.layer setBorderColor:[UIColorFromRGB(0xDD7248) CGColor]];

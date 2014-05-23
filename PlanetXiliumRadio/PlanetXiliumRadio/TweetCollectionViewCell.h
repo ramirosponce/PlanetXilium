@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Tweet.h"
 
 @interface TweetCollectionViewCell : UICollectionViewCell
 {
@@ -15,5 +16,5 @@
     __weak IBOutlet UILabel* tweetScreenName;
     __weak IBOutlet UILabel* tweetName;
 }
--(void) populate: (NSDictionary*)data;
+-(void) populate: (Tweet*)tweet;
 @end

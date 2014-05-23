@@ -13,10 +13,11 @@
 #import "TweetCollectionViewCell.h"
 #import "TwitterManager.h"
 #import <QuartzCore/QuartzCore.h>
+#import "Tweet.h"
 
 @interface MainViewController ()
 {
-    NSArray* data;
+    NSMutableArray* data;
     int selected_index;
     NSTimer* tweetTimer;
 }
@@ -77,6 +78,7 @@
 - (void) setupInterface
 {
     
+    data = [[NSMutableArray alloc] initWithCapacity:0];
     title_label.text = NSLocalizedString(@"Planeta Xilium", @"Planeta Xilium");
     dial_label.text = @"90.9";
     radio_state.text = @"";
@@ -88,9 +90,9 @@
     
     NSString* image_name = @"";
     if (IS_IPHONE_5)
-        image_name = @"home_background_640_1136.png";
+        image_name = @"Default-568h@2x.png";
     else
-        image_name = @"home_background_640_960.png";
+        image_name = @"Default.png";
     [background_image setImage:[UIImage imageNamed:image_name]];
     
     //_paused = NO;
@@ -109,7 +111,12 @@
 {
      selected_index=0;
     [[TwitterManager sharedManager]getTweetList:@"planetaxilium" count:10 successBlock:^(NSArray *statuses) {
-        data=  statuses;
+        data= nil;
+        data = [[NSMutableArray alloc] initWithCapacity:0];
+        for (NSDictionary *itemData in statuses) {
+            Tweet *dataTweet = [[Tweet alloc]initWithData:itemData];
+            [data addObject:dataTweet];
+        }
         [tweetView reloadData];
         [tweetPage setNumberOfPages:data.count];
         tweetTimer =[NSTimer scheduledTimerWithTimeInterval:10.0
@@ -132,8 +139,12 @@
     selected_index=0;
     
     [[TwitterManager sharedManager]getTweetList:@"planetaxilium" count:10 successBlock:^(NSArray *statuses) {
-        
-        data= statuses;
+        data= nil;
+        data = [[NSMutableArray alloc] initWithCapacity:0];
+        for (NSDictionary *itemData in statuses) {
+            Tweet *dataTweet = [[Tweet alloc]initWithData:itemData];
+            [data addObject:dataTweet];
+        }
         [tweetView reloadData];
         [tweetPage setNumberOfPages:data.count];
         
@@ -414,7 +425,7 @@
 #pragma mark UICollectionViewDelegates
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return data.count;
+    return [data count];
 
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
@@ -433,8 +444,7 @@
     if (cell == nil) {
         cell = (TweetCollectionViewCell*)[[UICollectionViewCell alloc] init];
     }
-    [cell populate:[data objectAtIndex:indexPath.row]];
-    NSLog(@"entre populate");
+    [cell populate:(Tweet*)[data objectAtIndex:indexPath.row]];
     return cell;
 }
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
