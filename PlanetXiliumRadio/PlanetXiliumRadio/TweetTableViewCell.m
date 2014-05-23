@@ -34,29 +34,42 @@
 
 -(void) populate:(NSDictionary *)data
 {
+    [self setBackgroundColor:[UIColor clearColor]];
+    
     tweet_text.text = [data objectForKey:@"text"];
     tweet_name.text = [[data objectForKey:@"user"]objectForKey:@"name"];
     tweet_screen_name.text =  [NSString stringWithFormat:@"@%@",[[data objectForKey:@"user"]objectForKey:@"screen_name"]];
     NSURL *imageURL =  [NSURL URLWithString: [[data objectForKey:@"user"]objectForKey:@"profile_image_url"]];
     [tweet_image setImageWithURL:imageURL placeholderImage:[UIImage imageNamed:@"empty_avatar"] options:SDWebImageCacheMemoryOnly];
     [tweet_image setClipsToBounds:YES];
-    [tweet_image.layer setCornerRadius:10.0f];
+    //[tweet_image.layer setCornerRadius:10.0f];
+    [tweet_image.layer setCornerRadius:tweet_image.frame.size.width/2];
     [tweet_image.layer setBorderColor:[UIColorFromRGB(000000) CGColor]];
+    
+    [tweet_media setClipsToBounds:YES];
+    [tweet_media.layer setCornerRadius:5.0f];
+    [tweet_media.layer setBorderColor:[UIColorFromRGB(000000) CGColor]];
+    
+    [background_tweet setClipsToBounds:YES];
+    [background_tweet.layer setCornerRadius:3.0f];
+    //[background_tweet.layer setBorderColor:[UIColorFromRGB(000000) CGColor]];
     
     NSArray *mediaData=[[data objectForKey:@"entities"]objectForKey:@"media"];
     if (mediaData) {
         NSDictionary *dataDic= [mediaData objectAtIndex:0];
         NSURL *mediaURL =  [NSURL URLWithString: [dataDic objectForKey:@"media_url"]];
-        NSDictionary *mediaSize = [[dataDic objectForKey:@"sizes"] objectForKey:@"small"];
-        CGFloat mediaHeight= [[mediaSize objectForKey:@"h"]floatValue];
-        CGFloat mediaWidht= [[mediaSize objectForKey:@"w"]floatValue];
-        [tweet_media setImageWithURL:mediaURL placeholderImage:[UIImage imageNamed:@"empty_avatar"] options:SDWebImageCacheMemoryOnly];
-        CGRect imageSize= CGRectMake(0 , 0, mediaWidht/2, mediaHeight/2);
-          NSLog(@"tengoDATAAAAA %f",mediaHeight);
-              NSLog(@"tengoDATAAAAAmediaWidht %f",mediaWidht);
-        tweet_media.frame=imageSize;
+        //NSDictionary *mediaSize = [[dataDic objectForKey:@"sizes"] objectForKey:@"small"];
+        //CGFloat mediaHeight= [[mediaSize objectForKey:@"h"]floatValue];
+        //CGFloat mediaWidht= [[mediaSize objectForKey:@"w"]floatValue];
+        [tweet_media setImageWithURL:mediaURL placeholderImage:nil options:SDWebImageCacheMemoryOnly];
+        
+        //CGRect imageSize = CGRectMake(tweet_media.frame.origin.x , tweet_media.frame.origin.y, mediaWidht, mediaHeight/2);
+        //NSLog(@"tengoDATAAAAA %f",mediaHeight);
+        //NSLog(@"tengoDATAAAAAmediaWidht %f",mediaWidht);
+        //tweet_media.frame = imageSize;
     }else
-        tweet_media =nil;
+        tweet_media.image = nil;
+    
     [self makeDynamic];
 }
 
@@ -100,14 +113,14 @@
     commentNewHeight += 10;
     
     CGRect commentFrame = tweet_text.frame;
-    commentFrame.origin.y = tweet_name.frame.origin.y + tweet_name.frame.size.height-8;// - 5;
+    commentFrame.origin.y = tweet_name.frame.origin.y + tweet_name.frame.size.height - 8;
     commentFrame.size.height = commentNewHeight;
     tweet_text.frame = commentFrame;
-    if(tweet_media){
-        CGRect imageFrame = tweet_media.frame;
-        imageFrame.origin.y = tweet_text.frame.origin.y + tweet_text.frame.size.height+10;
-        tweet_media.frame = imageFrame;
-    }
+    
+    CGRect imageFrame = tweet_media.frame;
+    imageFrame.origin.y = tweet_text.frame.origin.y + tweet_text.frame.size.height + 10;
+    tweet_media.frame = imageFrame;
+
 }
 
 @end

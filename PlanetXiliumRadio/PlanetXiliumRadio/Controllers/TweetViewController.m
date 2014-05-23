@@ -72,12 +72,15 @@
     title_label.text = NSLocalizedString(@"Twitter Xilium", @"Twitter Xilium");
     [title_label setFont:[UIFont fontWithName:FONT_TYPENOKSIDI size:19.0]];
     [loading_label setFont:[UIFont fontWithName:FONT_LOBSTER size:15.0]];
+    
+    [tweetsTable setBackgroundColor:[UIColor clearColor]];
     [tweetsTable setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    
     NSString* image_name = @"";
     if (IS_IPHONE_5)
-        image_name = @"home_background_640_1136.png";
+        image_name = @"twitter_background_640_1136.png";
     else
-        image_name = @"home_background_640_960.png";
+        image_name = @"twitter_background_640_960.png";
     [background_image setImage:[UIImage imageNamed:image_name]];
 }
 
@@ -104,7 +107,7 @@
 -(void)reloadTweetData
 {
     [tweetsTable stopRefreshAnimation];
-    [[TwitterManager sharedManager]getTweetList:@"LaRedInnova" count:10 successBlock:^(NSArray *statuses) {
+    [[TwitterManager sharedManager]getTweetList:@"planetaxilium" count:20 successBlock:^(NSArray *statuses) {
         data= statuses;
         NSData *jsonData2 = [NSJSONSerialization dataWithJSONObject:statuses options:NSJSONWritingPrettyPrinted error:nil];
         NSString *jsonString = [[NSString alloc] initWithData:jsonData2 encoding:NSUTF8StringEncoding];
@@ -120,7 +123,38 @@
     
 }
 
-#pragma mark - Table delegates
+#pragma mark -
+#pragma mark Table delegates
+
+//This function is where all the magic happens
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+    //1. Setup the CATransform3D structure
+    CATransform3D rotation;
+    rotation = CATransform3DMakeRotation( (90.0*M_PI)/180, 0.0, 0.7, 0.4);
+    rotation.m34 = 1.0/ -600;
+    
+    
+    //2. Define the initial state (Before the animation)
+    cell.layer.shadowColor = [[UIColor blackColor]CGColor];
+    cell.layer.shadowOffset = CGSizeMake(10, 10);
+    cell.alpha = 0;
+    
+    cell.layer.transform = rotation;
+    cell.layer.anchorPoint = CGPointMake(0, 0.5);
+    
+    
+    //3. Define the final state (After the animation) and commit the animation
+    [UIView beginAnimations:@"rotation" context:NULL];
+    [UIView setAnimationDuration:0.8];
+    cell.layer.transform = CATransform3DIdentity;
+    cell.alpha = 1;
+    cell.layer.shadowOffset = CGSizeMake(0, 0);
+    [UIView commitAnimations];
+    
+}
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return data.count;
 }
@@ -141,19 +175,23 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CGFloat tempHeight=[self getCommentCellHeight2:[data objectAtIndex:indexPath.row]];
-    if (tempHeight<72.0f) {
+    CGFloat tempHeight = [self getCommentCellHeight2:[data objectAtIndex:indexPath.row]];
+    if (tempHeight < 72.0f) {
         return 72.0f;
     }
-    else return tempHeight;
+    else
+        return tempHeight;
 }
 
 - (CGFloat)getCommentCellHeight2:(NSDictionary *)userData
 {
     CGRect titleFrame = CGRectMake(55.0, 8.0, 245.0, 21.0);
     CGRect commentFrame = CGRectMake(55.0, 27.0, 245.0, 21.0);
-    CGRect imageFrame = CGRectMake(55.0, 27.0, 245.0, 21.0);
-    UIFont* titleFont = [UIFont boldSystemFontOfSize:16.0];
+    
+    //CGRect imageFrame = CGRectMake(55.0, 27.0, 245.0, 21.0);
+    CGRect imageFrame = CGRectMake(20.0, 77.0, 291.0, 180.0);
+    
+    UIFont* titleFont = [UIFont boldSystemFontOfSize:14.0];
     NSDictionary *stringAttributes = [NSDictionary dictionaryWithObject:titleFont forKey: NSFontAttributeName];
     
     /* title */
@@ -174,7 +212,7 @@
     titleFrame = titleFrame_aux;
     
     /* comment and date*/
-    UIFont* commentFont = [UIFont systemFontOfSize:14];
+    UIFont* commentFont = [UIFont systemFontOfSize:15];
     stringAttributes = [NSDictionary dictionaryWithObject:commentFont forKey: NSFontAttributeName];
     
     CGSize commentExpectedLabelSize;
@@ -184,7 +222,7 @@
                                                           options:NSStringDrawingTruncatesLastVisibleLine|NSStringDrawingUsesLineFragmentOrigin
                                                        attributes:stringAttributes context:nil].size;
     commentNewHeight = commentExpectedLabelSize.height;
-    commentNewHeight += 18;
+    commentNewHeight += 10;
     
     CGRect commentFrame_aux = commentFrame;
     commentFrame_aux.origin.y = titleFrame.origin.y + titleFrame.size.height;
@@ -192,19 +230,13 @@
     commentFrame = commentFrame_aux;
     
     NSArray *mediaData=[[userData objectForKey:@"entities"]objectForKey:@"media"];
-    if (mediaData.count>0) {
-        NSDictionary *dataDic= [mediaData objectAtIndex:0];
-        NSDictionary *mediaSize = [[dataDic objectForKey:@"sizes"] objectForKey:@"small"];
-        CGFloat mediaHeight= [[mediaSize objectForKey:@"h"]floatValue];
-        CGFloat mediaWidht= [[mediaSize objectForKey:@"w"]floatValue];
-        //obtain center point
-        CGFloat resul = 320-mediaWidht/2;
-        CGRect imageFaame_aux= CGRectMake(resul,( commentFrame.origin.y + commentFrame.size.height+5), mediaWidht/2, mediaHeight/2);
-        imageFrame = imageFaame_aux;
-         return imageFrame.origin.y + imageFrame.size.height;
-        
+    if (mediaData.count > 0) {
+        CGRect imageFrame_aux = imageFrame;
+        imageFrame_aux.origin.y = commentFrame.origin.y + commentFrame.size.height + 10;
+        imageFrame = imageFrame_aux;
+        return imageFrame.origin.y + imageFrame.size.height + 10;
     }else
-      return commentFrame.origin.y + commentFrame.size.height;
+        return commentFrame.origin.y + commentFrame.size.height;
     
 }
 #pragma mark-back button action
