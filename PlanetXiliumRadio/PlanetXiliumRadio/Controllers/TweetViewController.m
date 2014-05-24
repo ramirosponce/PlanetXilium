@@ -51,27 +51,23 @@
     transform = CATransform3DTranslate(transform, offsetPositioning.x, offsetPositioning.y, 0.0);
     _initialTransformation = transform;
     // Do any additional setup after loading the view.
+    
+    loading_label.text = NSLocalizedString(@"Cargando", @"Cargando");
+    [self reloadTweetData];
 }
 
--(void)viewWillAppear:(BOOL)animated
+/*-(void)viewWillAppear:(BOOL)animated
 {
     __weak typeof(self) weakSelf =self;
     [tweetsTable registerClass:[UITableViewCell class] forCellReuseIdentifier:@"TweetCell"];
     [tweetsTable addPullToRefreshActionHandler:^{
           [self reloadTweetData];
     }];
-}
+}*/
 
 - (void) viewDidAppear:(BOOL)animated
 {
-    [tweetsTable.pullToRefreshView setBorderWidth:0.5];
-    [tweetsTable.pullToRefreshView setImageIcon:[UIImage imageNamed:@"xilium_head"]];
-    [tweetsTable.pullToRefreshView setSize:CGSizeMake(40, 40)];
-    [tweetsTable setHidden:YES];
-    [loading_image setHidden:NO];
-    [loading_label setHidden:NO];
-    loading_label.text = @"Cargando";
-    [self reloadTweetData];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -79,7 +75,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-#pragma mark - Private Methods
+
+#pragma mark -
+#pragma mark Private Methods
 
 - (void) setupInterface
 {
@@ -98,6 +96,13 @@
     else
         image_name = @"twitter_background_640_960.png";
     [background_image setImage:[UIImage imageNamed:image_name]];
+    
+    [tweetsTable.pullToRefreshView setBorderWidth:0.5];
+    [tweetsTable.pullToRefreshView setImageIcon:[UIImage imageNamed:@"xilium_head"]];
+    [tweetsTable.pullToRefreshView setSize:CGSizeMake(40, 40)];
+    [tweetsTable setHidden:YES];
+    [loading_image setHidden:NO];
+    [loading_label setHidden:NO];
 }
 
 - (IBAction) backAction:(id)sender
@@ -107,16 +112,15 @@
 
 -(void)pushComposer
 {
-    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
-    {
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]){
         SLComposeViewController *tweetSheet = [SLComposeViewController
                                                composeViewControllerForServiceType:SLServiceTypeTwitter];
-        [tweetSheet setInitialText:@"@turco082 "];
+        NSString* username = [NSString stringWithFormat:@"@%@ ",TWEER_USER];
+        [tweetSheet setInitialText:username];
         [self presentViewController:tweetSheet animated:YES completion:nil];
     }
-    else
-    {
-        [[[UIAlertView alloc] initWithTitle:nil message:@"No Hay servicio de Twitter disponible" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+    else{
+        [[[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"No Hay servicio de Twitter disponible", @"No Hay servicio de Twitter disponible") delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
     }
 
 }
@@ -124,7 +128,7 @@
 -(void)reloadTweetData
 {
     [tweetsTable stopRefreshAnimation];
-    [[TwitterManager sharedManager]getTweetList:@"turco082" count:20 successBlock:^(NSArray *statuses) {
+    [[TwitterManager sharedManager]getTweetList:TWEER_USER count:30 successBlock:^(NSArray *statuses) {
 //        NSData *jsonData2 = [NSJSONSerialization dataWithJSONObject:statuses options:NSJSONWritingPrettyPrinted error:nil];
 //        NSString *jsonString = [[NSString alloc] initWithData:jsonData2 encoding:NSUTF8StringEncoding];
 //        NSLog(@"jsonData as string:\n%@", jsonString);
@@ -140,7 +144,7 @@
         [loading_label setHidden:YES];
         [tweetsTable setHidden:NO];
     } errorBlock:^(NSError *error) {
-        [[[UIAlertView alloc] initWithTitle:nil message:@"Algo salio mal...Prueba de nuevo" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+        [[[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Error", @"Error") message:NSLocalizedString(@"Ocurrio un problema. Compruebe su conexion a internet", @"Ocurrio un problema. Compruebe su conexion a internet") delegate:self cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil]show];
     } ];
     
 }

@@ -90,9 +90,9 @@
     
     NSString* image_name = @"";
     if (IS_IPHONE_5)
-        image_name = @"Default-568h@2x.png";
+        image_name = @"main_menu_background-568h@2x.png";
     else
-        image_name = @"Default.png";
+        image_name = @"main_menu_background.png";
     [background_image setImage:[UIImage imageNamed:image_name]];
     
     //_paused = NO;
@@ -110,7 +110,7 @@
 -(void) loadXiliumTweets
 {
      selected_index=0;
-    [[TwitterManager sharedManager]getTweetList:@"planetaxilium" count:10 successBlock:^(NSArray *statuses) {
+    [[TwitterManager sharedManager]getTweetList:TWEER_USER count:10 successBlock:^(NSArray *statuses) {
         data= nil;
         data = [[NSMutableArray alloc] initWithCapacity:0];
         for (NSDictionary *itemData in statuses) {
@@ -127,18 +127,17 @@
         [self performSelector:@selector(updateData) withObject: nil afterDelay:300.0];
         
     } errorBlock:^(NSError *error) {
-        NSLog(@"Error: %@", error);
-    } ];
+        [[[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Error", @"Error") message:NSLocalizedString(@"Ocurrio un problema. Compruebe su conexion a internet", @"Ocurrio un problema. Compruebe su conexion a internet") delegate:self cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil]show];
+    }];
 }
 
 -(void) updateData
 {
-    NSLog(@"reloading DATA");
     [tweetTimer invalidate];
     tweetTimer = nil;
     selected_index=0;
     
-    [[TwitterManager sharedManager]getTweetList:@"planetaxilium" count:10 successBlock:^(NSArray *statuses) {
+    [[TwitterManager sharedManager]getTweetList:TWEER_USER count:10 successBlock:^(NSArray *statuses) {
         data= nil;
         data = [[NSMutableArray alloc] initWithCapacity:0];
         for (NSDictionary *itemData in statuses) {
@@ -216,9 +215,9 @@
 {
     UIActionSheet *shareActionSheet = [[UIActionSheet alloc] initWithTitle:nil
                                                                   delegate:nil
-                                                         cancelButtonTitle:@"Cancel"
+                                                         cancelButtonTitle:NSLocalizedString(@"Cancelar", @"Cancelar")
                                                     destructiveButtonTitle:nil
-                                                         otherButtonTitles:@"Share on Facebook", @"Share on Twitter", nil];
+                                                         otherButtonTitles:NSLocalizedString(@"Compartir en Facebook", @"Compartir en Facebook"), NSLocalizedString(@"Compartir en Twitter", @"Compartir en Twitter") , nil];
     [shareActionSheet showInView:self.view];
 }
 
@@ -255,24 +254,24 @@
         case kFsAudioStreamRetrievingURL:
             [self radioStateMoveUp];
             [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-            loadingLabel.text = @"Obteniendo URL...";
+            loadingLabel.text = NSLocalizedString(@"Obteniendo URL...", @"Obteniendo URL...");
             [play_pause_button setUserInteractionEnabled:NO];
             //_paused = NO;
             break;
         case kFsAudioStreamStopped:
             [self radioStateMoveDown];
             [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-            loadingLabel.text = @"Detenido";
+            loadingLabel.text = NSLocalizedString(@"Detenido", @"Detenido");
             //_paused = NO;
             break;
         case kFsAudioStreamBuffering:
             [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-            loadingLabel.text = @"Buffering...";
+            loadingLabel.text = NSLocalizedString(@"Buffering...", @"Buffering...");
             //_paused = NO;
             break;
         case kFsAudioStreamSeeking:
             [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-            loadingLabel.text = @"Buscando...";
+            loadingLabel.text = NSLocalizedString(@"Buscando...", @"Buscando...");
             //_paused = NO;
             break;
         case kFsAudioStreamPlaying:
@@ -288,7 +287,7 @@
         case kFsAudioStreamFailed:
             [self performSelector:@selector(radioStateMoveDown) withObject:nil afterDelay:0.5];
             [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-            loadingLabel.text = @"Error!";
+            loadingLabel.text = NSLocalizedString(@"Error!", @"Error!");
             [play_pause_button setUserInteractionEnabled:YES];
             //_paused = NO;
             break;

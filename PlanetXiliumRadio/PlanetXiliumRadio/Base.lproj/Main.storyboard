@@ -32,7 +32,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Default" id="x48-hU-pod">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_menu_background.png" id="x48-hU-pod">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -222,11 +222,11 @@
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xilium_head.png" id="a1P-4f-Hnx">
                                 <rect key="frame" x="124" y="250" width="72" height="69"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cargando" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PBP-aj-QDZ">
                                 <rect key="frame" x="92" y="314" width="135" height="21"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.49411767719999999" green="0.44313728810000003" blue="0.40784317260000003" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
@@ -249,7 +249,7 @@
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                 </view>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thunderbird.png" id="IKs-7Q-7ZV">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="IKs-7Q-7ZV">
                                                     <rect key="frame" x="9" y="6" width="50" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -340,14 +340,14 @@
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cargando" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xWm-nn-EZK">
                                 <rect key="frame" x="93" y="303" width="135" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.49411767719999999" green="0.44313728810000003" blue="0.40784317260000003" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xilium_head.png" id="KXc-4Z-drC">
                                 <rect key="frame" x="124" y="235" width="72" height="69"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                             </imageView>
                             <webView hidden="YES" contentMode="scaleToFill" id="KLE-Nd-nAV">
                                 <rect key="frame" x="0.0" y="66" width="320" height="503"/>
@@ -388,7 +388,7 @@
                                 </items>
                             </toolbar>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Web" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1kr-NF-0xS">
-                                <rect key="frame" x="56" y="30" width="207" height="21"/>
+                                <rect key="frame" x="58" y="30" width="207" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -400,10 +400,10 @@
                     <navigationItem key="navigationItem" id="82D-UH-sgG"/>
                     <connections>
                         <outlet property="backButton" destination="7U3-eL-dyp" id="Ac0-yf-cfn"/>
+                        <outlet property="loading_label" destination="xWm-nn-EZK" id="1pI-eP-myZ"/>
                         <outlet property="title_label" destination="1kr-NF-0xS" id="6jx-Eo-SeV"/>
                         <outlet property="tweetWeb" destination="KLE-Nd-nAV" id="xks-zj-CTA"/>
                         <outlet property="xiliumImage" destination="KXc-4Z-drC" id="bQO-VD-QYs"/>
-                        <outlet property="xiliumText" destination="xWm-nn-EZK" id="2MU-sf-rLM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ch-wh-PSk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -412,14 +412,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Default" width="320" height="480"/>
         <image name="arrow.png" width="40" height="40"/>
         <image name="button_background.png" width="182" height="182"/>
         <image name="container_background.png" width="320" height="187"/>
+        <image name="main_menu_background.png" width="320" height="480"/>
         <image name="new_tweet_icon.png" width="23" height="23"/>
         <image name="radio_play_button.png" width="79" height="79"/>
         <image name="rockbox_logo.png" width="94" height="24"/>
-        <image name="thunderbird.png" width="100" height="100"/>
         <image name="twitter_background_640_960.png" width="320" height="480"/>
         <image name="xilium_head.png" width="115" height="85"/>
     </resources>

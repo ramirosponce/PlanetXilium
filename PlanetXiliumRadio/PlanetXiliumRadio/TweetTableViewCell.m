@@ -39,7 +39,7 @@
     tweet_text.text = tweet.text;
     tweet_name.text = tweet.name;
     tweet_screen_name.text = tweet.screen_name;
-    [tweet_image setImageWithURL:tweet.profile_image_url placeholderImage:[UIImage imageNamed:@"empty_avatar"] options:SDWebImageCacheMemoryOnly];
+    [tweet_image setImageWithURL:tweet.profile_image_url placeholderImage:nil options:SDWebImageCacheMemoryOnly];
     [tweet_image setClipsToBounds:YES];
     //[tweet_image.layer setCornerRadius:10.0f];
     [tweet_image.layer setCornerRadius:tweet_image.frame.size.width/2];
@@ -51,7 +51,7 @@
     
     [background_tweet setClipsToBounds:YES];
     [background_tweet.layer setCornerRadius:3.0f];
-    //[background_tweet.layer setBorderColor:[UIColorFromRGB(000000) CGColor]];
+    
     if (tweet.media_image_url) {
         [tweet_media setImageWithURL:tweet.media_image_url placeholderImage:nil options:SDWebImageCacheMemoryOnly];
     }else

@@ -13,8 +13,8 @@
     __weak IBOutlet UIWebView* tweetWeb;
     __weak IBOutlet UIButton* backButton;
     __weak IBOutlet UIImageView* xiliumImage;
-    __weak IBOutlet UILabel* xiliumText;
     __weak IBOutlet UILabel* title_label;
+    __weak IBOutlet UILabel* loading_label;
 }
 @property (nonatomic,strong)NSURL* link;
 @end

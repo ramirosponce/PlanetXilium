@@ -77,6 +77,9 @@
 		C6085B4F192B067900BF0A11 /* Lobster.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C6085B4E192B067900BF0A11 /* Lobster.ttf */; };
 		C6085B52192B189A00BF0A11 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = C6085B50192B189A00BF0A11 /* arrow.png */; };
 		C6085B53192B189A00BF0A11 /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6085B51192B189A00BF0A11 /* arrow@2x.png */; };
+		C613B264193062D300E64646 /* main_menu_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C613B261193062D300E64646 /* main_menu_background@2x.png */; };
+		C613B265193062D300E64646 /* main_menu_background.png in Resources */ = {isa = PBXBuildFile; fileRef = C613B262193062D300E64646 /* main_menu_background.png */; };
+		C613B266193062D300E64646 /* main_menu_background-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C613B263193062D300E64646 /* main_menu_background-568h@2x.png */; };
 		C6A250ED19135C6100A2DA8F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6A250EC19135C6100A2DA8F /* Foundation.framework */; };
 		C6A250EF19135C6100A2DA8F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6A250EE19135C6100A2DA8F /* CoreGraphics.framework */; };
 		C6A250F119135C6100A2DA8F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6A250F019135C6100A2DA8F /* UIKit.framework */; };
@@ -278,6 +281,9 @@
 		C6085B4E192B067900BF0A11 /* Lobster.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Lobster.ttf; sourceTree = "<group>"; };
 		C6085B50192B189A00BF0A11 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
 		C6085B51192B189A00BF0A11 /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@2x.png"; sourceTree = "<group>"; };
+		C613B261193062D300E64646 /* main_menu_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "main_menu_background@2x.png"; sourceTree = "<group>"; };
+		C613B262193062D300E64646 /* main_menu_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_menu_background.png; sourceTree = "<group>"; };
+		C613B263193062D300E64646 /* main_menu_background-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "main_menu_background-568h@2x.png"; sourceTree = "<group>"; };
 		C6A250E919135C6100A2DA8F /* PlanetXiliumRadio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlanetXiliumRadio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6A250EC19135C6100A2DA8F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C6A250EE19135C6100A2DA8F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -413,6 +419,9 @@
 		0151E81A1923F30400654374 /* Images Xilium */ = {
 			isa = PBXGroup;
 			children = (
+				C613B261193062D300E64646 /* main_menu_background@2x.png */,
+				C613B262193062D300E64646 /* main_menu_background.png */,
+				C613B263193062D300E64646 /* main_menu_background-568h@2x.png */,
 				C6DD547E192F0DC6003DF140 /* new_tweet_icon@2x.png */,
 				C6DD547F192F0DC6003DF140 /* new_tweet_icon.png */,
 				01C4D82A1925806E00206D1B /* xilium_head.png */,
@@ -907,6 +916,7 @@
 				0151E83B1924326F00654374 /* slider-cap.png in Resources */,
 				C6A25163191373BC00A2DA8F /* Dosis-Bold.otf in Resources */,
 				C6A25169191373BC00A2DA8F /* Dosis-SemiBold.otf in Resources */,
+				C613B266193062D300E64646 /* main_menu_background-568h@2x.png in Resources */,
 				C6085B4D192B040900BF0A11 /* rockbox_logo.png in Resources */,
 				01C4D81E192552EE00206D1B /* planet_xilium_logo.png in Resources */,
 				C6A2517F191374B700A2DA8F /* next_button@2x.png in Resources */,
@@ -914,6 +924,7 @@
 				0151E8321923F30400654374 /* radio_play_button.png in Resources */,
 				C6A250F719135C6100A2DA8F /* InfoPlist.strings in Resources */,
 				C6A2519219137D2100A2DA8F /* pause_button@2x.png in Resources */,
+				C613B264193062D300E64646 /* main_menu_background@2x.png in Resources */,
 				C6A25164191373BC00A2DA8F /* Dosis-ExtraBold.otf in Resources */,
 				C6DD5481192F0DC6003DF140 /* new_tweet_icon.png in Resources */,
 				0151E8401924326F00654374 /* slider-track@2x.png in Resources */,
@@ -944,6 +955,7 @@
 				C6A2510019135C6100A2DA8F /* Main.storyboard in Resources */,
 				C6A2519419137D2100A2DA8F /* play_button@2x.png in Resources */,
 				C6A25167191373BC00A2DA8F /* Dosis-Medium.otf in Resources */,
+				C613B265193062D300E64646 /* main_menu_background.png in Resources */,
 				C6F6469E19246E2100FEA5AD /* container_background@2x.png in Resources */,
 				C6085B4F192B067900BF0A11 /* Lobster.ttf in Resources */,
 				C6A2517D191374B700A2DA8F /* menu_button@2x.png in Resources */,
@@ -1150,6 +1162,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ramiro Ponce (P2GBB7WP88)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PlanetXiliumRadio/PlanetXiliumRadio-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -1158,8 +1171,9 @@
 					"$(SDKROOT)/usr/include/libxml2",
 				);
 				INFOPLIST_FILE = "PlanetXiliumRadio/PlanetXiliumRadio-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "24388445-9E8F-41BA-B3CC-DE35EEAE7679";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1177,8 +1191,9 @@
 					"$(SDKROOT)/usr/include/libxml2",
 				);
 				INFOPLIST_FILE = "PlanetXiliumRadio/PlanetXiliumRadio-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "24388445-9E8F-41BA-B3CC-DE35EEAE7679";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
