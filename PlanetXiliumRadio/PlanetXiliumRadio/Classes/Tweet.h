@@ -13,6 +13,7 @@
 @property (nonatomic,strong) NSString* name;
 @property (nonatomic,strong) NSString* screen_name;
 @property (nonatomic,strong) NSString* text;
+@property (nonatomic, strong) NSDate* created_at;
 @property (nonatomic,strong) NSURL* profile_image_url;
 @property (nonatomic,strong) NSURL* media_image_url;
 @property (nonatomic,strong) NSURL* link_url;

@@ -14,6 +14,8 @@
     __weak IBOutlet UIImageView* tweet_image;
     __weak IBOutlet UILabel* tweet_screen_name;
     __weak IBOutlet UILabel* tweet_name;
+    __weak IBOutlet UILabel* tweet_date;
+    
     __weak IBOutlet UILabel* tweet_text;
     __weak IBOutlet UIImageView* tweet_media;
     

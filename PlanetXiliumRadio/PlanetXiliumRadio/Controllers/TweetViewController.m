@@ -56,17 +56,23 @@
     [self reloadTweetData];
 }
 
-/*-(void)viewWillAppear:(BOOL)animated
+-(void)viewWillAppear:(BOOL)animated
 {
     __weak typeof(self) weakSelf =self;
     [tweetsTable registerClass:[UITableViewCell class] forCellReuseIdentifier:@"TweetCell"];
     [tweetsTable addPullToRefreshActionHandler:^{
           [self reloadTweetData];
     }];
-}*/
+ 
+    [tweetsTable.pullToRefreshView setBorderWidth:0.5];
+    [tweetsTable.pullToRefreshView setImageIcon:[UIImage imageNamed:@"xilium_head"]];
+    [tweetsTable.pullToRefreshView setSize:CGSizeMake(40, 40)];
+    
+}
 
 - (void) viewDidAppear:(BOOL)animated
 {
+    
     
 }
 
@@ -97,9 +103,6 @@
         image_name = @"twitter_background_640_960.png";
     [background_image setImage:[UIImage imageNamed:image_name]];
     
-    [tweetsTable.pullToRefreshView setBorderWidth:0.5];
-    [tweetsTable.pullToRefreshView setImageIcon:[UIImage imageNamed:@"xilium_head"]];
-    [tweetsTable.pullToRefreshView setSize:CGSizeMake(40, 40)];
     [tweetsTable setHidden:YES];
     [loading_image setHidden:NO];
     [loading_label setHidden:NO];
@@ -129,9 +132,9 @@
 {
     [tweetsTable stopRefreshAnimation];
     [[TwitterManager sharedManager]getTweetList:TWEER_USER count:30 successBlock:^(NSArray *statuses) {
-//        NSData *jsonData2 = [NSJSONSerialization dataWithJSONObject:statuses options:NSJSONWritingPrettyPrinted error:nil];
-//        NSString *jsonString = [[NSString alloc] initWithData:jsonData2 encoding:NSUTF8StringEncoding];
-//        NSLog(@"jsonData as string:\n%@", jsonString);
+        //NSData *jsonData2 = [NSJSONSerialization dataWithJSONObject:statuses options:NSJSONWritingPrettyPrinted error:nil];
+        //NSString *jsonString = [[NSString alloc] initWithData:jsonData2 encoding:NSUTF8StringEncoding];
+        //NSLog(@"jsonData as string:\n%@", jsonString);
 
         data= nil;
         data = [[NSMutableArray alloc] initWithCapacity:0];
@@ -215,33 +218,35 @@
 }
 - (CGFloat)getCommentCellHeight:(Tweet *)userData
 {
-    CGRect titleFrame = CGRectMake(55.0, 8.0, 245.0, 21.0);
-    CGRect commentFrame = CGRectMake(55.0, 27.0, 245.0, 21.0);
+    //CGRect titleFrame = CGRectMake(55.0, 8.0, 245.0, 21.0);
+    //CGRect commentFrame = CGRectMake(55.0, 27.0, 245.0, 21.0);
+    CGRect titleFrame = CGRectMake(67.0, 9.0, 62.0, 21.0);
+    CGRect commentFrame = CGRectMake(66.0, 25.0, 246.0, 47.0);
     
     //CGRect imageFrame = CGRectMake(55.0, 27.0, 245.0, 21.0);
-    CGRect imageFrame = CGRectMake(20.0, 77.0, 291.0, 180.0);
+    CGRect imageFrame = CGRectMake(20.0, 82.0, 280.0, 180.0);
     
-    UIFont* titleFont = [UIFont boldSystemFontOfSize:14.0];
+    UIFont* titleFont = [UIFont boldSystemFontOfSize:15.0];
     NSDictionary *stringAttributes = [NSDictionary dictionaryWithObject:titleFont forKey: NSFontAttributeName];
     
     /* title */
     CGSize titleExpectedLabelSize;
     CGFloat titleNewHeight;
-    CGSize titleConstraintSize = CGSizeMake(245.0f, 999.0f);
+    CGSize titleConstraintSize = CGSizeMake(999.0f, 21.0f);
     
-    NSString* cell_title = [NSString stringWithFormat:@"%@ %@:",userData.name, NSLocalizedString(@"dijo", @"dijo")];
+    NSString* cell_title = userData.name;
     
     titleExpectedLabelSize = [cell_title boundingRectWithSize:titleConstraintSize
                                                       options:NSStringDrawingTruncatesLastVisibleLine|NSStringDrawingUsesLineFragmentOrigin
                                                    attributes:stringAttributes context:nil].size;
     titleNewHeight = titleExpectedLabelSize.height;
-    //titleNewHeight += 5;
+
     
     CGRect  titleFrame_aux = titleFrame;
     titleFrame_aux.size.height = titleNewHeight;
     titleFrame = titleFrame_aux;
     
-    /* comment and date*/
+    /* comment*/
     UIFont* commentFont = [UIFont systemFontOfSize:15];
     stringAttributes = [NSDictionary dictionaryWithObject:commentFont forKey: NSFontAttributeName];
     
@@ -263,9 +268,9 @@
         CGRect imageFrame_aux = imageFrame;
         imageFrame_aux.origin.y = commentFrame.origin.y + commentFrame.size.height + 10;
         imageFrame = imageFrame_aux;
-        return imageFrame.origin.y + imageFrame.size.height + 10;
+        return imageFrame.origin.y + imageFrame.size.height + 20;
     }else
-        return commentFrame.origin.y + commentFrame.size.height;
+        return commentFrame.origin.y + commentFrame.size.height + 10;
     
 }
 #pragma mark-back button action

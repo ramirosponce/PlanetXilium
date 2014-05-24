@@ -48,7 +48,7 @@
                                                           options:NSStringDrawingTruncatesLastVisibleLine|NSStringDrawingUsesLineFragmentOrigin
                                                        attributes:stringAttributes context:nil].size;
     titleNewWidth = titleExpectedLabelSize.width;
-    titleNewWidth += 5;
+    titleNewWidth += 2;
     
     CGRect  titleFrame = tweetName.frame;
     titleFrame.size.width = titleNewWidth;

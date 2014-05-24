@@ -51,11 +51,25 @@
     
     [background_tweet setClipsToBounds:YES];
     [background_tweet.layer setCornerRadius:3.0f];
+    [background_tweet.layer setBorderColor:[[UIColor lightGrayColor] CGColor]];
+    [background_tweet.layer setBorderWidth:.7];
     
     if (tweet.media_image_url) {
         [tweet_media setImageWithURL:tweet.media_image_url placeholderImage:nil options:SDWebImageCacheMemoryOnly];
     }else
         tweet_media.image = nil;
+    
+    if (tweet.created_at) {
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];;
+        
+        // see http://unicode.org/reports/tr35/tr35-6.html#Date_Format_Patterns
+        [dateFormatter setDateFormat: @"dd MMM"];
+        tweet_date.text = [dateFormatter stringFromDate:tweet.created_at];
+    }else{
+        tweet_date.text = @"";
+    }
+    
+    
     
     [self makeDynamic];
 }
@@ -75,7 +89,7 @@
                                                        attributes:stringAttributes context:nil].size;
     titleNewWidth = titleExpectedLabelSize.width;
     titleNewHeight = titleExpectedLabelSize.height;
-    titleNewWidth += 5;
+    titleNewWidth += 2;
     
     CGRect  titleFrame = tweet_name.frame;
     titleFrame.size.width = titleNewWidth;
@@ -86,7 +100,7 @@
     screenNameFrame.origin.x = tweet_name.frame.origin.x + tweet_name.frame.size.width;
     tweet_screen_name.frame = screenNameFrame;
     
-    /* comment and date*/
+    /* comment*/
     UIFont* commentFont = tweet_text.font;
     stringAttributes = [NSDictionary dictionaryWithObject:commentFont forKey: NSFontAttributeName];
     
@@ -100,7 +114,7 @@
     commentNewHeight += 10;
     
     CGRect commentFrame = tweet_text.frame;
-    commentFrame.origin.y = tweet_name.frame.origin.y + tweet_name.frame.size.height - 8;
+    commentFrame.origin.y = tweet_name.frame.origin.y + tweet_name.frame.size.height ;
     commentFrame.size.height = commentNewHeight;
     tweet_text.frame = commentFrame;
     

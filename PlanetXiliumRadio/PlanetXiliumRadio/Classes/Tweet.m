@@ -32,6 +32,24 @@
         else
             self.link_url =  nil;
         
+        // "created_at" : "Wed May 21 09:41:31 +0000 2014",
+        //NSString* created_at_string = [data objectForKey:@"created_at"];
+        
+        if ([data objectForKey:@"created_at"]) {
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            NSLocale *usLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+            [dateFormatter setLocale:usLocale];
+            [dateFormatter setDateStyle:NSDateFormatterLongStyle];
+            [dateFormatter setFormatterBehavior:NSDateFormatterBehavior10_4];
+            
+            // see http://unicode.org/reports/tr35/tr35-6.html#Date_Format_Patterns
+            [dateFormatter setDateFormat: @"EEE MMM dd HH:mm:ss Z yyyy"];
+            
+            self.created_at = [dateFormatter dateFromString:[data objectForKey:@"created_at"]];
+        }
+        
+        
+        
     }
     return self;
 }
