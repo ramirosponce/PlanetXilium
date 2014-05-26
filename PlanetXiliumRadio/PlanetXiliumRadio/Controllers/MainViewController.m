@@ -80,6 +80,8 @@
     if (_audioController != nil) {
         [_audioController stop];
         [self radioStateMoveDown];
+        _audioController = nil;
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         [play_pause_button setImage:[UIImage imageNamed:@"radio_play_button"] forState:UIControlStateNormal];
         [play_pause_button setUserInteractionEnabled:YES];
     }
