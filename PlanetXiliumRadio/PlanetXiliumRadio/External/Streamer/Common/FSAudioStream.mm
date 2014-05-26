@@ -855,16 +855,17 @@ void AudioStreamStateObserver::audioStreamMetaDataAvailable(std::map<CFStringRef
     
 #if (__IPHONE_OS_VERSION_MIN_REQUIRED >= 50000)
     NSMutableDictionary *songInfo = [[NSMutableDictionary alloc] init];
+    songInfo[MPMediaItemPropertyTitle] = @"albertito";
     
-    if (metaDataDictionary[@"MPMediaItemPropertyTitle"]) {
-        songInfo[MPMediaItemPropertyTitle] = metaDataDictionary[@"MPMediaItemPropertyTitle"];
-    } else if (metaDataDictionary[@"StreamTitle"]) {
-        songInfo[MPMediaItemPropertyTitle] = metaDataDictionary[@"StreamTitle"];
-    }
-    
-    if (metaDataDictionary[@"MPMediaItemPropertyArtist"]) {
-        songInfo[MPMediaItemPropertyArtist] = metaDataDictionary[@"MPMediaItemPropertyArtist"];
-    }
+//    if (metaDataDictionary[@"MPMediaItemPropertyTitle"]) {
+//        songInfo[MPMediaItemPropertyTitle] = metaDataDictionary[@"MPMediaItemPropertyTitle"];
+//    } else if (metaDataDictionary[@"StreamTitle"]) {
+//        songInfo[MPMediaItemPropertyTitle] = metaDataDictionary[@"StreamTitle"];
+//    }
+//    
+//    if (metaDataDictionary[@"MPMediaItemPropertyArtist"]) {
+//        songInfo[MPMediaItemPropertyArtist] = metaDataDictionary[@"MPMediaItemPropertyArtist"];
+//    }
     
     [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:songInfo];
 #endif
