@@ -29,6 +29,8 @@
     
     __weak IBOutlet UIView* loadingView;
     __weak IBOutlet UILabel* loadingLabel;
+    __weak IBOutlet UIView* cancelLoadingButton;
+    __weak IBOutlet UILabel* cancelLoadingLabel;
     
     // State
     BOOL _shouldStartPlaying;

@@ -75,6 +75,14 @@
 #pragma mark -
 #pragma mark private methods
 
+- (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
+    if (_audioController != nil) {
+        [_audioController stop];
+        [self radioStateMoveDown];
+        [play_pause_button setImage:[UIImage imageNamed:@"radio_play_button"] forState:UIControlStateNormal];
+        [play_pause_button setUserInteractionEnabled:YES];
+    }
+}
 - (void) setupInterface
 {
     
@@ -82,6 +90,15 @@
     title_label.text = NSLocalizedString(@"Planeta Xilium", @"Planeta Xilium");
     dial_label.text = @"90.9";
     radio_state.text = @"";
+    
+    [cancelLoadingButton.layer setCornerRadius:cancelLoadingButton.frame.size.width/2];
+    [cancelLoadingButton.layer setBorderColor:[loadingLabel.textColor CGColor]];
+    [cancelLoadingButton.layer setBorderWidth: 2.0f];
+    
+    UITapGestureRecognizer *singleFingerTap =
+    [[UITapGestureRecognizer alloc] initWithTarget:self
+                                            action:@selector(handleSingleTap:)];
+    [cancelLoadingButton addGestureRecognizer:singleFingerTap];
     
     [title_label setFont:[UIFont fontWithName:FONT_TYPENOKSIDI size:19.0]];
     [dial_label setFont:[UIFont fontWithName:FONT_TYPENOKSIDI size:25.0]];
@@ -167,12 +184,12 @@
          NSIndexPath *item_idx;
         if(selected_index<(data.count-1)){
             selected_index++;
-            item_idx = [NSIndexPath indexPathForItem:selected_index++ inSection:0];
+            item_idx = [NSIndexPath indexPathForItem:selected_index inSection:0];
             [tweetView scrollToItemAtIndexPath:item_idx atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
         }
         else {
             selected_index=0;
-            item_idx = [NSIndexPath indexPathForItem:selected_index++ inSection:0];
+            item_idx = [NSIndexPath indexPathForItem:selected_index inSection:0];
             [tweetView scrollToItemAtIndexPath:item_idx atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:NO];
         }
 }
@@ -409,7 +426,9 @@
                                                selector:@selector(playCarrousel)
                                                userInfo:nil
                                                 repeats:YES];
-
+    if (_audioController != nil && !_audioController.isPlaying) {
+        [play_pause_button setImage:[UIImage imageNamed:@"radio_play_button"] forState:UIControlStateNormal];
+    }
 }
 #pragma mark -
 #pragma mark UICollectionViewDataSource

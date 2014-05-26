@@ -110,20 +110,34 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </pageControl>
                             <view contentMode="scaleToFill" id="V3h-Wc-AIL">
-                                <rect key="frame" x="99" y="384" width="120" height="50"/>
+                                <rect key="frame" x="85" y="384" width="150" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="container_background.png" id="4ha-bf-ies">
-                                        <rect key="frame" x="0.0" y="0.0" width="120" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="50"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xSm-X7-qpn">
-                                        <rect key="frame" x="7" y="11" width="107" height="21"/>
+                                        <rect key="frame" x="5" y="11" width="107" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" red="0.49411767721176147" green="0.44313728809356689" blue="0.40784317255020142" alpha="1" colorSpace="deviceRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view contentMode="scaleToFill" id="3vS-jS-mdM">
+                                        <rect key="frame" x="118" y="8" width="25" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AxZ-hF-oPs">
+                                                <rect key="frame" x="-8" y="0.0" width="42" height="25"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <color key="textColor" red="0.49411767719999999" green="0.44313728810000003" blue="0.40784317260000003" alpha="1" colorSpace="deviceRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.89019614458084106" green="0.87058830261230469" blue="0.80784320831298828" alpha="1" colorSpace="deviceRGB"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
@@ -169,6 +183,8 @@
                     <navigationItem key="navigationItem" id="wju-8A-2OA"/>
                     <connections>
                         <outlet property="background_image" destination="x48-hU-pod" id="fsN-NY-Fjr"/>
+                        <outlet property="cancelLoadingButton" destination="3vS-jS-mdM" id="kY5-uN-K7Q"/>
+                        <outlet property="cancelLoadingLabel" destination="AxZ-hF-oPs" id="WUA-gJ-JVA"/>
                         <outlet property="loadingLabel" destination="xSm-X7-qpn" id="6P1-rS-IIt"/>
                         <outlet property="loadingView" destination="V3h-Wc-AIL" id="BrZ-PB-Rkh"/>
                         <outlet property="play_pause_button" destination="2vC-Rs-FnL" id="a51-gx-e0L"/>
@@ -247,6 +263,12 @@
                                                 <view contentMode="scaleToFill" id="W9h-Ib-EBq">
                                                     <rect key="frame" x="5" y="2" width="310" height="262"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="6pJ-pQ-gMb">
+                                                            <rect key="frame" x="15" y="82" width="280" height="180"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        </imageView>
+                                                    </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                 </view>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="IKs-7Q-7ZV">
@@ -281,10 +303,6 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="6pJ-pQ-gMb">
-                                                    <rect key="frame" x="20" y="82" width="280" height="180"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -417,6 +435,19 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ch-wh-PSk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="23" y="-673"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="eer-uz-7oe">
+            <objects>
+                <viewController id="WkD-Lm-zAn" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="h7f-QX-Aci">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fPA-Q3-jPy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>
