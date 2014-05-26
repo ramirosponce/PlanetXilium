@@ -855,7 +855,7 @@ void AudioStreamStateObserver::audioStreamMetaDataAvailable(std::map<CFStringRef
     
 #if (__IPHONE_OS_VERSION_MIN_REQUIRED >= 50000)
     NSMutableDictionary *songInfo = [[NSMutableDictionary alloc] init];
-    songInfo[MPMediaItemPropertyTitle] = @"albertito";
+    songInfo[MPMediaItemPropertyTitle] = @"Planeta Xilium - 90.9";
     
 //    if (metaDataDictionary[@"MPMediaItemPropertyTitle"]) {
 //        songInfo[MPMediaItemPropertyTitle] = metaDataDictionary[@"MPMediaItemPropertyTitle"];

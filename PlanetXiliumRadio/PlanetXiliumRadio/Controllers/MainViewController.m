@@ -43,17 +43,18 @@
 {
     [super viewDidLoad];
     [self setupInterface];
+    [self loadXiliumTweets];
 }
 
 - (void) viewWillAppear:(BOOL)animated{
-
+    
 }
 
 - (void) viewDidAppear:(BOOL)animated
 {
     [self setupRemoteControl];
     [self setupNotifications];
-    [self loadXiliumTweets];
+    
     //[self performSelector:@selector(radioStart) withObject:nil afterDelay:3.0];
 }
 
@@ -426,7 +427,9 @@
                                                selector:@selector(playCarrousel)
                                                userInfo:nil
                                                 repeats:YES];
-    if (_audioController != nil && !_audioController.isPlaying) {
+    if (_audioController != nil && _audioController.isPlaying) {
+        [_audioController stop];
+        _audioController = nil;
         [play_pause_button setImage:[UIImage imageNamed:@"radio_play_button"] forState:UIControlStateNormal];
     }
 }
