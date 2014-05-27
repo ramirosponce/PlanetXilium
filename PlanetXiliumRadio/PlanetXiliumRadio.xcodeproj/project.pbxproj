@@ -153,6 +153,8 @@
 		C6A2519219137D2100A2DA8F /* pause_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A2518E19137D2100A2DA8F /* pause_button@2x.png */; };
 		C6A2519319137D2100A2DA8F /* play_button.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A2518F19137D2100A2DA8F /* play_button.png */; };
 		C6A2519419137D2100A2DA8F /* play_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A2519019137D2100A2DA8F /* play_button@2x.png */; };
+		C6A6998F19344A85008B5A8D /* Icon-120@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A6998E19344A85008B5A8D /* Icon-120@2x.png */; };
+		C6A6999119344BE2008B5A8D /* Icon-Small-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A6999019344BE2008B5A8D /* Icon-Small-50@2x.png */; };
 		C6DD547B192F08DE003DF140 /* twitter_background_640_960.png in Resources */ = {isa = PBXBuildFile; fileRef = C6DD5478192F08DE003DF140 /* twitter_background_640_960.png */; };
 		C6DD547C192F08DE003DF140 /* twitter_background_640_1136.png in Resources */ = {isa = PBXBuildFile; fileRef = C6DD5479192F08DE003DF140 /* twitter_background_640_1136.png */; };
 		C6DD547D192F08DE003DF140 /* twitter_background_640_960@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6DD547A192F08DE003DF140 /* twitter_background_640_960@2x.png */; };
@@ -392,6 +394,8 @@
 		C6A2518F19137D2100A2DA8F /* play_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_button.png; sourceTree = "<group>"; };
 		C6A2519019137D2100A2DA8F /* play_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play_button@2x.png"; sourceTree = "<group>"; };
 		C6A2519619137E3C00A2DA8F /* Main.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Main.h; sourceTree = "<group>"; };
+		C6A6998E19344A85008B5A8D /* Icon-120@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-120@2x.png"; sourceTree = "<group>"; };
+		C6A6999019344BE2008B5A8D /* Icon-Small-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50@2x.png"; sourceTree = "<group>"; };
 		C6DD5478192F08DE003DF140 /* twitter_background_640_960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter_background_640_960.png; sourceTree = "<group>"; };
 		C6DD5479192F08DE003DF140 /* twitter_background_640_1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter_background_640_1136.png; sourceTree = "<group>"; };
 		C6DD547A192F08DE003DF140 /* twitter_background_640_960@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter_background_640_960@2x.png"; sourceTree = "<group>"; };
@@ -622,6 +626,8 @@
 		C67BCD7D193424EB0056DAA7 /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				C6A6999019344BE2008B5A8D /* Icon-Small-50@2x.png */,
+				C6A6998E19344A85008B5A8D /* Icon-120@2x.png */,
 				C67BCD7E193424EB0056DAA7 /* Icon-120.png */,
 				C67BCD7F193424EB0056DAA7 /* Icon-72.png */,
 				C67BCD80193424EB0056DAA7 /* Icon-72@2x.png */,
@@ -914,6 +920,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Ramiro Ponce";
 				TargetAttributes = {
+					C6A250E819135C6100A2DA8F = {
+						DevelopmentTeam = 2J22X5PEC2;
+					};
 					C6A2510919135C6100A2DA8F = {
 						TestTargetID = C6A250E819135C6100A2DA8F;
 					};
@@ -992,6 +1001,7 @@
 				C67BCD91193424EB0056DAA7 /* Icon-Small-50.png in Resources */,
 				C6A25184191374B700A2DA8F /* sound_image_background.png in Resources */,
 				0151E8281923F30400654374 /* button_background.png in Resources */,
+				C6A6999119344BE2008B5A8D /* Icon-Small-50@2x.png in Resources */,
 				0151E82A1923F30400654374 /* Default-568h@2x.png in Resources */,
 				C67BCD90193424EB0056DAA7 /* Icon-76@2x.png in Resources */,
 				C67BCD93193424EB0056DAA7 /* Icon-Small@2x.png in Resources */,
@@ -1012,6 +1022,7 @@
 				C67BCD8F193424EB0056DAA7 /* Icon-76.png in Resources */,
 				C6A25183191374B700A2DA8F /* share_button@2x.png in Resources */,
 				0151E8291923F30400654374 /* button_background@2x.png in Resources */,
+				C6A6998F19344A85008B5A8D /* Icon-120@2x.png in Resources */,
 				C6A2517E191374B700A2DA8F /* next_button.png in Resources */,
 				C6A2519319137D2100A2DA8F /* play_button.png in Resources */,
 				0151E82C1923F30400654374 /* Default@2x.png in Resources */,
@@ -1226,7 +1237,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ramiro Ponce (P2GBB7WP88)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PlanetXiliumRadio/PlanetXiliumRadio-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -1237,7 +1248,7 @@
 				INFOPLIST_FILE = "PlanetXiliumRadio/PlanetXiliumRadio-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "24388445-9E8F-41BA-B3CC-DE35EEAE7679";
+				PROVISIONING_PROFILE = "7847E46B-5A52-4422-80B8-8420DCE6A0A6";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1247,6 +1258,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PlanetXiliumRadio/PlanetXiliumRadio-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -1257,7 +1269,7 @@
 				INFOPLIST_FILE = "PlanetXiliumRadio/PlanetXiliumRadio-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "24388445-9E8F-41BA-B3CC-DE35EEAE7679";
+				PROVISIONING_PROFILE = "7847E46B-5A52-4422-80B8-8420DCE6A0A6";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
