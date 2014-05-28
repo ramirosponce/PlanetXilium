@@ -318,15 +318,19 @@
 {
     if (receivedEvent.type == UIEventTypeRemoteControl) {
         switch (receivedEvent.subtype) {
-            case UIEventSubtypeRemoteControlPause: /* FALLTHROUGH */
-            case UIEventSubtypeRemoteControlPlay:  /* FALLTHROUGH */
+            case UIEventSubtypeRemoteControlPause:
+            case UIEventSubtypeRemoteControlPlay:  
             case UIEventSubtypeRemoteControlTogglePlayPause:
                 if (_audioController != nil && _audioController.isPlaying) {
                     //[self play:self];
                     [_audioController pause];
+                    [play_pause_button setImage:[UIImage imageNamed:@"radio_play_button"] forState:UIControlStateNormal];
+                    [_audioController stop];
+                    _audioController = nil;
                 } else {
                     //[self pause:self];
                     [_audioController play];
+                    [play_pause_button setImage:[UIImage imageNamed:@"radio_pause_button"] forState:UIControlStateNormal];
                 }
                 break;
             default:
@@ -429,11 +433,6 @@
                                                selector:@selector(playCarrousel)
                                                userInfo:nil
                                                 repeats:YES];
-    if (_audioController != nil && _audioController.isPlaying) {
-        [_audioController stop];
-        _audioController = nil;
-        [play_pause_button setImage:[UIImage imageNamed:@"radio_play_button"] forState:UIControlStateNormal];
-    }
 }
 #pragma mark -
 #pragma mark UICollectionViewDataSource
