@@ -323,7 +323,7 @@
             case UIEventSubtypeRemoteControlTogglePlayPause:
                 if (_audioController != nil && _audioController.isPlaying) {
                     //[self play:self];
-                    [_audioController pause];
+              //      [_audioController pause];
                     [play_pause_button setImage:[UIImage imageNamed:@"radio_play_button"] forState:UIControlStateNormal];
                     [_audioController stop];
                     _audioController = nil;
