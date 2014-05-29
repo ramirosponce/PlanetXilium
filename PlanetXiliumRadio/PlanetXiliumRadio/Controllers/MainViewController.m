@@ -422,12 +422,18 @@
     // do something when the application enter in background
     [tweetTimer invalidate];
     tweetTimer = nil;
+    NSLog(@"entree back");
     
 }
 
 - (void)applicationWillEnterForegroundNotification:(NSNotification *)notification
 {
     // do something when the application appear from foreground
+    NSLog(@"entre fo");
+    if(tweetTimer!=nil)
+    {[tweetTimer invalidate];
+        tweetTimer = nil;
+    }
     tweetTimer =[NSTimer scheduledTimerWithTimeInterval:10.0
                                                  target:self
                                                selector:@selector(playCarrousel)
