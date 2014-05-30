@@ -20,6 +20,8 @@
     NSMutableArray* data;
     int selected_index;
     NSTimer* tweetTimer;
+    
+    BOOL isInPause;
 }
 @end
 
@@ -217,7 +219,12 @@
 
 - (IBAction)playAction:(id)sender
 {
-    if (_audioController != nil && _audioController.isPlaying) {
+    
+    if (_audioController != nil && isInPause) {
+        isInPause = NO;
+        [_audioController play];
+        [play_pause_button setImage:[UIImage imageNamed:@"radio_pause_button.png"] forState:UIControlStateNormal];
+    }else if (_audioController != nil && _audioController.isPlaying) {
         [_audioController stop];
         [play_pause_button setImage:[UIImage imageNamed:@"radio_play_button"] forState:UIControlStateNormal];
     }else{
@@ -323,12 +330,14 @@
             case UIEventSubtypeRemoteControlTogglePlayPause:
                 if (_audioController != nil && _audioController.isPlaying) {
                     //[self play:self];
-              //      [_audioController pause];
-                    [play_pause_button setImage:[UIImage imageNamed:@"radio_play_button"] forState:UIControlStateNormal];
-                    [_audioController stop];
-                    _audioController = nil;
+                    [_audioController pause];
+                    isInPause = YES;
+                    //[play_pause_button setImage:[UIImage imageNamed:@"radio_play_button"] forState:UIControlStateNormal];
+                    //[_audioController stop];
+                    //_audioController = nil;
                 } else {
                     //[self pause:self];
+                    isInPause = NO;
                     [_audioController play];
                     [play_pause_button setImage:[UIImage imageNamed:@"radio_pause_button"] forState:UIControlStateNormal];
                 }
@@ -422,14 +431,12 @@
     // do something when the application enter in background
     [tweetTimer invalidate];
     tweetTimer = nil;
-    NSLog(@"entree back");
     
 }
 
 - (void)applicationWillEnterForegroundNotification:(NSNotification *)notification
 {
     // do something when the application appear from foreground
-    NSLog(@"entre fo");
     if(tweetTimer!=nil)
     {[tweetTimer invalidate];
         tweetTimer = nil;
@@ -439,6 +446,11 @@
                                                selector:@selector(playCarrousel)
                                                userInfo:nil
                                                 repeats:YES];
+    
+    if (_audioController != nil && isInPause) {
+        [play_pause_button setImage:[UIImage imageNamed:@"radio_play_button"] forState:UIControlStateNormal];
+    }
+    
 }
 #pragma mark -
 #pragma mark UICollectionViewDataSource

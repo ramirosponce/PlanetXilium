@@ -130,12 +130,13 @@
 
 -(void)reloadTweetData
 {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    
     [tweetsTable stopRefreshAnimation];
     [[TwitterManager sharedManager]getTweetList:TWEER_USER count:30 successBlock:^(NSArray *statuses) {
-        //NSData *jsonData2 = [NSJSONSerialization dataWithJSONObject:statuses options:NSJSONWritingPrettyPrinted error:nil];
-        //NSString *jsonString = [[NSString alloc] initWithData:jsonData2 encoding:NSUTF8StringEncoding];
-        //NSLog(@"jsonData as string:\n%@", jsonString);
-
+        
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+        
         data= nil;
         data = [[NSMutableArray alloc] initWithCapacity:0];
         for (NSDictionary *itemData in statuses) {
@@ -147,6 +148,9 @@
         [loading_label setHidden:YES];
         [tweetsTable setHidden:NO];
     } errorBlock:^(NSError *error) {
+        
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+        
         [[[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Error", @"Error") message:NSLocalizedString(@"Ocurrio un problema. Compruebe su conexion a internet", @"Ocurrio un problema. Compruebe su conexion a internet") delegate:self cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil]show];
     } ];
     
