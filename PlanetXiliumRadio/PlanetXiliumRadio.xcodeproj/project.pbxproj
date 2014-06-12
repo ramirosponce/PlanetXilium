@@ -1248,7 +1248,7 @@
 				INFOPLIST_FILE = "PlanetXiliumRadio/PlanetXiliumRadio-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "7847E46B-5A52-4422-80B8-8420DCE6A0A6";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1258,7 +1258,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Ramiro Ponce (2J22X5PEC2)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PlanetXiliumRadio/PlanetXiliumRadio-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -1269,7 +1269,7 @@
 				INFOPLIST_FILE = "PlanetXiliumRadio/PlanetXiliumRadio-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "7847E46B-5A52-4422-80B8-8420DCE6A0A6";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
