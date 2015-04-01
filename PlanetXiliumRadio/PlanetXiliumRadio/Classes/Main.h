@@ -38,7 +38,7 @@
 // MACRO COLOR
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
-#define RADIO_URL @"http://173.236.28.138:8430/listen.pls"
+#define RADIO_URL @"http://108.166.161.199:8430/listen.pls"
 
 #define TWEER_USER @"planetaxilium"
 
